@@ -3,60 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="theme-color" content="#C17F24">
+    <meta name="theme-color" content="#FAF9F6">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="择日2026">
     <!-- 主屏幕图标 -->
     <link rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxODAgMTgwIj48cmVjdCB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgcng9IjQwIiBmaWxsPSIjMUExMDA0Ii8+PHRleHQgeD0iOTAiIHk9IjExNSIgZm9udC1mYW1pbHk9IlBpbmdGYW5nIFNDIiBmb250LXNpemU9Ijg0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjQzE3RjI0Ij7mhJrml6U8L3RleHQ+PC9zdmc+">
     <title>玄空五行择日 | 2026吉日查询</title>
     <style>
         /* ═══════════════════════════════════════════════════════════════
-           🏮 暖橙琥珀 - 中式传统主题
-           主色调：琥珀金 (#C17F24)、朱砂橙 (#E8521A)
-           背景：沉墨深棕，温润如玉
+           极简白底 · 五行配色
+           背景：纯白，黑字，五行为点缀
         ═══════════════════════════════════════════════════════════════ */
 
         :root {
-            /* ── 背景层次（深棕墨色）── */
-            --bg-primary:    #0E0904;
-            --bg-secondary:  #1A1008;
-            --bg-tertiary:   #251608;
-            --bg-card:       rgba(255,200,100,0.05);
-            --bg-glass:      rgba(255,180,60,0.07);
-            --bg-glass-b:    rgba(255,180,60,0.15);
+            /* ── 背景层次（纯白）── */
+            --bg-primary:    #FAF9F6;
+            --bg-secondary:  #F0EDE8;
+            --bg-tertiary:   #E8E3DC;
+            --bg-card:       #FFFFFF;
+            --bg-glass:      #FFFFFF;
+            --bg-glass-b:    #E5E0DA;
 
             /* ── 文字色彩 ── */
-            --text-primary:   #F5E6C8;
-            --text-secondary: #D4B483;
-            --text-muted:     #A07840;
-            --text-dim:       #6B5030;
+            --text-primary:   #1A1A1A;
+            --text-secondary: #555555;
+            --text-muted:     #888888;
+            --text-dim:       #BBBBBB;
 
-            /* ── 主品牌色 - 琥珀金橙 ── */
+            /* ── 主品牌色 - 保持金橙 ── */
             --primary:        #C17F24;
             --primary-light:  #E8A840;
             --primary-dark:   #8B5A0A;
             --accent:         #E8521A;
             --accent-light:   #FF6B35;
             --accent-dark:    #B03A0A;
-            --gold:           #F0C040;
-            --gold-light:     #FAD860;
+            --gold:           #D4A020;
+            --gold-light:     #E8C040;
 
             /* ── 五行色彩 ── */
-            --wx-water: #4A9ECC;
-            --wx-fire:  #E8521A;
-            --wx-wood:  #4CAF50;
-            --wx-metal: #E8C84A;
-            --wx-earth: #C17F24;
+            --wx-water: #4080B8;
+            --wx-fire:  #D04020;
+            --wx-wood:  #3A8A40;
+            --wx-metal: #C8A020;
+            --wx-earth: #B87030;
+
+            /* ── 五行卡片底色（浅色版）── */
+            --wx-water-bg: #D8ECF8;
+            --wx-fire-bg:  #FCD8D0;
+            --wx-wood-bg:  #D4ECD8;
+            --wx-metal-bg: #F8F0D0;
+            --wx-earth-bg: #F0E0D0;
 
             /* ── 吉凶色彩 ── */
-            --luck-super:   #F0C040;
-            --luck-great:   #66BB6A;
-            --luck-good:    #4A9ECC;
-            --luck-small:   #AB8ECA;
-            --luck-normal:  #8A7560;
-            --luck-bad:     #E87040;
-            --luck-terrible:#D03030;
+            --luck-super:   #D4A020;
+            --luck-great:   #4A8A4A;
+            --luck-good:    #4080B8;
+            --luck-small:   #8868B0;
+            --luck-normal:  #999999;
+            --luck-bad:     #D06030;
+            --luck-terrible:#C03030;
 
             /* ── 间距 ── */
             --space-xs: 4px;
@@ -79,10 +85,10 @@
             --transition-slow:   0.5s ease;
 
             /* ── 阴影 ── */
-            --shadow-sm:  0 2px 8px rgba(193,127,36,0.2);
-            --shadow-md:  0 4px 20px rgba(193,127,36,0.3);
-            --shadow-lg:  0 8px 40px rgba(193,127,36,0.4);
-            --shadow-glow:0 0 30px rgba(240,192,64,0.5);
+            --shadow-sm:  0 1px 4px rgba(0,0,0,0.06);
+            --shadow-md:  0 2px 12px rgba(0,0,0,0.08);
+            --shadow-lg:  0 4px 24px rgba(0,0,0,0.1);
+            --shadow-glow:0 0 20px rgba(193,127,36,0.25);
         }
 
         *, *::before, *::after {
@@ -101,57 +107,6 @@
             padding-bottom: env(safe-area-inset-bottom, 0px);
         }
 
-        /* ── 背景纹理装饰 ── */
-        .bg-pattern {
-            position: fixed; inset: 0; pointer-events: none; z-index: 0;
-            background:
-                radial-gradient(ellipse at 15% 20%, rgba(193,127,36,0.10) 0%, transparent 50%),
-                radial-gradient(ellipse at 85% 75%, rgba(232,82,26,0.06) 0%, transparent 50%),
-                radial-gradient(ellipse at 50% 50%, rgba(240,192,64,0.04) 0%, transparent 70%);
-        }
-
-        .glow-orbs {
-            position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden;
-        }
-        .glow-orb {
-            position: absolute; border-radius: 50%;
-            filter: blur(90px); opacity: 0.35;
-            animation: orb-float 10s ease-in-out infinite;
-        }
-        .glow-orb:nth-child(1) {
-            width: 500px; height: 500px;
-            background: radial-gradient(circle, #C17F24, transparent);
-            top: -150px; left: -150px;
-        }
-        .glow-orb:nth-child(2) {
-            width: 350px; height: 350px;
-            background: radial-gradient(circle, #E8521A, transparent);
-            bottom: -80px; right: -80px;
-            animation-delay: 4s;
-        }
-        .glow-orb:nth-child(3) {
-            width: 250px; height: 250px;
-            background: radial-gradient(circle, #F0C040, transparent);
-            top: 40%; left: 50%;
-            transform: translate(-50%, -50%);
-            animation-delay: 7s;
-        }
-        @keyframes orb-float {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(25px, -25px); }
-        }
-
-        /* 八卦纹路装饰 */
-        .trigram-deco {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 0;
-            opacity: 0.03;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Ctext x='40' y='55' font-size='50' text-anchor='middle' fill='%23C17F24'%3E☯%3C/text%3E%3C/svg%3E");
-            background-size: 120px 120px;
-        }
-
         /* ── 容器 ── */
         .container {
             max-width: 1200px;
@@ -166,9 +121,9 @@
 
         /* 实时日期横幅 */
         .today-banner {
-            background: linear-gradient(135deg, rgba(193,127,36,0.25), rgba(232,82,26,0.15));
-            border: 1px solid rgba(193,127,36,0.35);
-            border-radius: var(--radius-md);
+            background: var(--bg-card);
+            border: 1px solid var(--bg-glass-b);
+            border-radius: var(--radius-lg);
             padding: var(--space-sm) var(--space-lg);
             margin-bottom: var(--space-sm);
             display: flex;
@@ -176,13 +131,13 @@
             justify-content: space-between;
             flex-wrap: wrap;
             gap: var(--space-sm);
-            backdrop-filter: blur(12px);
+            box-shadow: var(--shadow-sm);
         }
 
         .today-date-main {
             font-size: 1.1rem;
             font-weight: 700;
-            color: var(--gold);
+            color: var(--text-primary);
             letter-spacing: 0.05em;
         }
 
@@ -195,16 +150,16 @@
         .today-tag {
             font-size: 0.82rem;
             color: var(--text-secondary);
-            background: rgba(193,127,36,0.15);
+            background: var(--bg-secondary);
             padding: 3px 10px;
             border-radius: var(--radius-full);
-            border: 1px solid rgba(193,127,36,0.25);
+            border: 1px solid var(--bg-glass-b);
         }
 
         .today-tag.luck {
-            color: var(--gold-light);
-            border-color: rgba(240,192,64,0.4);
-            background: rgba(240,192,64,0.12);
+            color: var(--primary);
+            border-color: var(--primary-light);
+            background: #FFF8EC;
         }
 
         /* 主导航 */
@@ -213,12 +168,11 @@
             align-items: center;
             justify-content: space-between;
             padding: var(--space-md) var(--space-lg);
-            background: var(--bg-glass);
-            backdrop-filter: blur(20px);
+            background: var(--bg-card);
             border-radius: var(--radius-lg);
             margin-bottom: var(--space-lg);
             border: 1px solid var(--bg-glass-b);
-            box-shadow: var(--shadow-md);
+            box-shadow: var(--shadow-sm);
         }
 
         .top-nav-logo {
@@ -231,14 +185,13 @@
             border-radius: var(--radius-md);
             display: flex; align-items: center; justify-content: center;
             font-size: 1.5rem;
-            box-shadow: 0 4px 15px rgba(193,127,36,0.5);
+            box-shadow: 0 4px 15px rgba(193,127,36,0.3);
         }
 
         .top-nav-logo-text {
             font-size: 1.25rem;
             font-weight: 700;
-            background: linear-gradient(135deg, var(--gold-light), var(--primary-light));
-            -webkit-background-clip: text; background-clip: text; color: transparent;
+            color: var(--text-primary);
             letter-spacing: 0.05em;
         }
 
@@ -256,8 +209,8 @@
             transition: all var(--transition-fast);
         }
         .top-nav-link:hover, .top-nav-link.active {
-            background: rgba(193,127,36,0.2);
-            color: var(--primary-light);
+            background: var(--bg-secondary);
+            color: var(--primary);
         }
 
         /* ═══════════════════════════════════════════════════════════════
@@ -265,14 +218,14 @@
         ═══════════════════════════════════════════════════════════════ */
 
         .hero {
-            background: linear-gradient(135deg, rgba(193,127,36,0.12) 0%, rgba(14,9,4,0) 60%);
-            backdrop-filter: blur(15px);
+            background: var(--bg-card);
             border-radius: var(--radius-xl);
             padding: var(--space-2xl) var(--space-xl);
             margin-bottom: var(--space-xl);
             text-align: center;
             position: relative; overflow: hidden;
-            border: 1px solid rgba(193,127,36,0.25);
+            border: 1px solid var(--bg-glass-b);
+            box-shadow: var(--shadow-sm);
         }
 
         .hero::before {
@@ -280,8 +233,8 @@
             position: absolute;
             top: 50%; left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 220px;
-            color: rgba(193,127,36,0.04);
+            font-size: 200px;
+            color: rgba(193,127,36,0.05);
             pointer-events: none;
             animation: hero-spin 60s linear infinite;
         }
@@ -292,19 +245,18 @@
         .hero-badge {
             display: inline-flex; align-items: center; gap: var(--space-xs);
             padding: 4px var(--space-md);
-            background: rgba(193,127,36,0.2);
-            border: 1px solid rgba(193,127,36,0.4);
+            background: #FFF8EC;
+            border: 1px solid var(--primary-light);
             border-radius: var(--radius-full);
             font-size: 0.82rem; font-weight: 600;
-            color: var(--primary-light);
+            color: var(--primary);
             margin-bottom: var(--space-md);
         }
 
         .hero-title {
             font-size: clamp(1.8rem, 5vw, 2.8rem);
             font-weight: 700;
-            background: linear-gradient(135deg, var(--gold), var(--primary-light), var(--accent-light));
-            -webkit-background-clip: text; background-clip: text; color: transparent;
+            color: var(--text-primary);
             margin-bottom: var(--space-sm);
             letter-spacing: 0.1em;
         }
@@ -321,12 +273,12 @@
 
         .tab-nav {
             display: flex; gap: var(--space-sm);
-            background: rgba(255,180,60,0.05);
-            backdrop-filter: blur(15px);
+            background: var(--bg-card);
             border-radius: var(--radius-lg);
             padding: var(--space-sm);
             margin-bottom: var(--space-xl);
             border: 1px solid var(--bg-glass-b);
+            box-shadow: var(--shadow-sm);
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
         }
@@ -342,11 +294,11 @@
             gap: 6px; white-space: nowrap;
             min-height: 44px; touch-action: manipulation;
         }
-        .tab-btn:hover { background: rgba(193,127,36,0.12); color: var(--primary-light); }
+        .tab-btn:hover { background: var(--bg-secondary); color: var(--primary); }
         .tab-btn.active {
             background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: #FFF8EC;
-            box-shadow: 0 4px 20px rgba(193,127,36,0.45);
+            color: #FFF;
+            box-shadow: 0 4px 16px rgba(193,127,36,0.35);
         }
 
         /* ═══════════════════════════════════════════════════════════════
@@ -362,25 +314,24 @@
         }
 
         .glass-box {
-            background: var(--bg-glass);
-            backdrop-filter: blur(15px);
+            background: var(--bg-card);
             border-radius: var(--radius-lg);
             padding: var(--space-xl);
             margin-bottom: var(--space-xl);
             border: 1px solid var(--bg-glass-b);
-            box-shadow: var(--shadow-md);
+            box-shadow: var(--shadow-sm);
         }
 
         .glass-box h2 {
             font-size: 1.2rem; font-weight: 700;
-            color: var(--primary-light);
+            color: var(--text-primary);
             margin-bottom: var(--space-lg);
             display: flex; align-items: center; gap: var(--space-sm);
         }
         .glass-box h2::before {
             content: '';
             width: 4px; height: 20px;
-            background: linear-gradient(180deg, var(--gold), var(--accent));
+            background: linear-gradient(180deg, var(--primary), var(--accent));
             border-radius: 2px;
         }
 
@@ -399,8 +350,8 @@
 
         select, input[type="text"], input[type="date"] {
             padding: var(--space-md);
-            background: rgba(193,127,36,0.08);
-            border: 1px solid rgba(193,127,36,0.25);
+            background: var(--bg-primary);
+            border: 1px solid var(--bg-glass-b);
             border-radius: var(--radius-md);
             font-size: 0.95rem;
             color: var(--text-primary);
@@ -417,15 +368,14 @@
         }
         input[type="date"]::-webkit-calendar-picker-indicator {
             cursor: pointer; opacity: 0.7;
-            filter: invert(0.8) sepia(1) saturate(3) hue-rotate(10deg);
         }
         select:focus, input:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(193,127,36,0.2);
+            box-shadow: 0 0 0 3px rgba(193,127,36,0.15);
         }
 
-        /* ─ 按钮 ─ */
+        /* ── 按钮 ── */
         .btn {
             display: inline-flex; align-items: center; justify-content: center;
             gap: var(--space-sm);
@@ -438,14 +388,181 @@
         }
         .btn-primary {
             background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: #FFF8EC;
-            box-shadow: 0 4px 20px rgba(193,127,36,0.4);
+            color: #FFF;
+            box-shadow: 0 4px 16px rgba(193,127,36,0.3);
         }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: var(--shadow-glow); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: var(--shadow-glow); }
+        .btn-reset {
+            background: var(--bg-card); color: var(--text-primary);
+            border: 1px solid var(--bg-glass-b);
+        }
+        .btn-reset:hover { background: var(--bg-glass-b); transform: translateY(-2px); }
         .btn:active { transform: scale(0.97); }
 
         /* ═══════════════════════════════════════════════════════════════
-           月历网格
+           周视觉 · 当日居中、左右滑动
+        ═══════════════════════════════════════════════════════════════ */
+
+        .week-view {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: var(--space-md);
+            margin-bottom: var(--space-lg);
+            border: 1px solid var(--bg-glass-b);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .week-view-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: var(--space-md);
+        }
+
+        .week-view-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: 0.03em;
+        }
+
+        .week-nav-btns {
+            display: flex; gap: var(--space-xs);
+        }
+
+        .week-nav-btn {
+            width: 38px; height: 38px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--bg-glass-b);
+            background: var(--bg-card);
+            color: var(--text-secondary);
+            cursor: pointer; font-size: 1.15rem;
+            display: flex; align-items: center; justify-content: center;
+            transition: all var(--transition-fast);
+            min-height: 38px; touch-action: manipulation;
+        }
+        .week-nav-btn:hover:not(:disabled) {
+            background: var(--primary);
+            color: #FFF; border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+        .week-nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+
+        .week-nav-btn.today-btn {
+            width: auto; padding: 0 14px;
+            font-size: 0.82rem; font-weight: 700;
+            letter-spacing: 0.03em;
+        }
+
+        /* 7日横条 */
+        .week-strip {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 6px;
+            position: relative;
+        }
+
+        .week-day-card {
+            border-radius: 14px;
+            padding: 10px 4px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative; overflow: hidden;
+            border: 1.5px solid transparent;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3px;
+            background: var(--bg-secondary);
+            color: var(--text-muted);
+            min-height: 0;
+        }
+
+        /* 五行色卡片 */
+        .week-day-card.has-data { background: var(--bg-card); border-color: var(--bg-glass-b); }
+        .week-day-card.has-data.wx-金 { background: var(--wx-metal-bg); border-color: var(--wx-metal); }
+        .week-day-card.has-data.wx-木 { background: var(--wx-wood-bg); border-color: var(--wx-wood); }
+        .week-day-card.has-data.wx-水 { background: var(--wx-water-bg); border-color: var(--wx-water); }
+        .week-day-card.has-data.wx-火 { background: var(--wx-fire-bg); border-color: var(--wx-fire); }
+        .week-day-card.has-data.wx-土 { background: var(--wx-earth-bg); border-color: var(--wx-earth); }
+
+        .week-day-card:hover { transform: scale(1.05); z-index: 5; box-shadow: var(--shadow-md); }
+
+        /* 今日高亮 */
+        .week-day-card.today {
+            border: 2.5px solid var(--accent) !important;
+            box-shadow: 0 0 0 3px rgba(232,82,26,0.2);
+            background: #FFF5F0 !important;
+        }
+        .week-day-card.today.wx-金 { background: #FFFDF5 !important; }
+        .week-day-card.today.wx-木 { background: #F5FFF7 !important; }
+        .week-day-card.today.wx-水 { background: #F5FAFF !important; }
+        .week-day-card.today.wx-火 { background: #FFF5F0 !important; }
+        .week-day-card.today.wx-土 { background: #FFF9F3 !important; }
+
+        .week-day-card .wk-wd {
+            font-size: 0.7rem; font-weight: 600;
+            color: var(--text-muted); line-height: 1;
+            letter-spacing: 0.03em;
+        }
+        .week-day-card.today .wk-wd { color: var(--accent); }
+
+        .week-day-card .wk-date {
+            font-size: 1.5rem; font-weight: 900; line-height: 1;
+            color: var(--text-primary);
+        }
+        .week-day-card.today .wk-date { color: var(--accent); }
+
+        .week-day-card .wk-jiazi {
+            font-size: 1.0rem; font-weight: 800; line-height: 1;
+            letter-spacing: 0.08em;
+        }
+        .week-day-card.has-data.wx-金 .wk-jiazi { color: #8A6A08; }
+        .week-day-card.has-data.wx-木 .wk-jiazi { color: #1A5A22; }
+        .week-day-card.has-data.wx-水 .wk-jiazi { color: #1A4088; }
+        .week-day-card.has-data.wx-火 .wk-jiazi { color: #8A1A08; }
+        .week-day-card.has-data.wx-土 .wk-jiazi { color: #7A3810; }
+
+        .week-day-card .wk-luck-badge {
+            font-size: 0.75rem; font-weight: 800; line-height: 1.2;
+            padding: 2px 10px; border-radius: 10px;
+            letter-spacing: 0.03em;
+        }
+        .week-day-card .wk-score {
+            font-size: 0.85rem; font-weight: 700; line-height: 1;
+        }
+        .week-day-card .wk-today-tag {
+            position: absolute; top: 4px; right: 5px;
+            font-size: 0.6rem; font-weight: 900;
+            background: var(--accent); color: #FFF;
+            padding: 1px 6px; border-radius: 6px;
+            letter-spacing: 0.03em;
+        }
+
+        /* 周视觉滑动动画 */
+        .week-strip.sliding-left { animation: wkSlideLeft 0.25s ease; }
+        .week-strip.sliding-right { animation: wkSlideRight 0.25s ease; }
+        @keyframes wkSlideLeft {
+            from { opacity: 0; transform: translateX(30px); }
+            to   { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes wkSlideRight {
+            from { opacity: 0; transform: translateX(-30px); }
+            to   { opacity: 1; transform: translateX(0); }
+        }
+
+        /* ── 响应式：周视觉 ── */
+        @media (max-width: 480px) {
+            .week-day-card { padding: 6px 2px; }
+            .week-day-card .wk-date { font-size: 1.25rem; }
+            .week-day-card .wk-jiazi { font-size: 0.85rem; }
+            .week-day-card .wk-luck-badge { font-size: 0.65rem; padding: 1px 7px; }
+            .week-day-card .wk-score { font-size: 0.72rem; }
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           月历网格 · 五行色卡片风格
         ═══════════════════════════════════════════════════════════════ */
 
         /* 月份导航头部 */
@@ -453,45 +570,45 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: var(--space-md) var(--space-lg);
-            background: var(--bg-glass);
-            backdrop-filter: blur(15px);
+            padding: var(--space-sm) var(--space-md);
+            background: var(--bg-card);
             border-radius: var(--radius-lg);
-            margin-bottom: var(--space-md);
+            margin-bottom: var(--space-sm);
             border: 1px solid var(--bg-glass-b);
+            box-shadow: var(--shadow-sm);
         }
         .month-nav-title {
-            font-size: 1.2rem; font-weight: 700;
-            color: var(--gold-light); letter-spacing: 0.05em;
+            font-size: 1.15rem; font-weight: 700;
+            color: var(--text-primary); letter-spacing: 0.03em;
         }
         .month-nav-btn {
-            width: 44px; height: 44px;
+            width: 40px; height: 40px;
             border-radius: var(--radius-md);
-            border: 1px solid rgba(193,127,36,0.35);
-            background: rgba(193,127,36,0.1);
-            color: var(--primary-light);
-            cursor: pointer; font-size: 1.3rem;
+            border: 1px solid var(--bg-glass-b);
+            background: var(--bg-card);
+            color: var(--text-secondary);
+            cursor: pointer; font-size: 1.2rem;
             display: flex; align-items: center; justify-content: center;
             transition: all var(--transition-fast);
-            min-height: 44px; touch-action: manipulation;
+            min-height: 40px; touch-action: manipulation;
         }
         .month-nav-btn:hover:not(:disabled) {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: #FFF8EC; border-color: var(--primary);
+            background: var(--primary);
+            color: #FFF; border-color: var(--primary);
             box-shadow: var(--shadow-md);
         }
-        .month-nav-btn:disabled { opacity: 0.25; cursor: not-allowed; }
+        .month-nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
 
         /* 星期头部行 */
         .weekday-header {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-            gap: 4px;
-            margin-bottom: var(--space-sm);
+            gap: 5px;
+            margin-bottom: var(--space-xs);
         }
         .weekday-header-cell {
             text-align: center;
-            font-size: 0.78rem; font-weight: 600;
+            font-size: 0.75rem; font-weight: 600;
             color: var(--text-muted);
             padding: var(--space-xs) 0;
         }
@@ -500,63 +617,94 @@
         .month-grid {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-            gap: 4px;
+            gap: 5px;
             position: relative;
             touch-action: pan-y;
         }
+
+        /* ── 核心：五行色卡片格子 ── */
         .month-cell {
-            aspect-ratio: 1 / 1.15;
-            border-radius: var(--radius-sm);
-            padding: 4px 2px;
+            aspect-ratio: 1 / 1.25;
+            border-radius: 12px;
+            padding: 5px 4px;
             text-align: center;
             cursor: pointer;
-            transition: all var(--transition-fast);
+            transition: all 0.2s ease;
             position: relative;
             overflow: hidden;
-            border: 2px solid transparent;
+            border: none;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             gap: 1px;
-            min-height: 54px;
+            min-height: 0;
+            background: var(--bg-secondary);
+            color: var(--text-muted);
         }
-        .month-cell:hover { transform: scale(1.05); z-index: 5; }
-        .month-cell.has-data {
-            background: rgba(193,127,36,0.08);
-            border-color: rgba(193,127,36,0.15);
-        }
-        .month-cell.has-data:hover {
-            background: rgba(193,127,36,0.18);
-            box-shadow: var(--shadow-sm);
-        }
+
+        /* 有数据的格子 → 五行色卡片 */
+        .month-cell.has-data { background: var(--bg-card); border: 1px solid var(--bg-glass-b); }
+        .month-cell.has-data.wx-金 { background: var(--wx-metal-bg); border-color: var(--wx-metal); }
+        .month-cell.has-data.wx-木 { background: var(--wx-wood-bg); border-color: var(--wx-wood); }
+        .month-cell.has-data.wx-水 { background: var(--wx-water-bg); border-color: var(--wx-water); }
+        .month-cell.has-data.wx-火 { background: var(--wx-fire-bg);  border-color: var(--wx-fire); }
+        .month-cell.has-data.wx-土 { background: var(--wx-earth-bg); border-color: var(--wx-earth); }
+
+        .month-cell:hover { transform: scale(1.06); z-index: 5; box-shadow: var(--shadow-md); }
+
         .month-cell.other-month {
-            opacity: 0.25; cursor: default;
-            background: rgba(255,255,255,0.02);
+            opacity: 0.3; cursor: default;
+            background: transparent;
         }
+
         .month-cell.today {
-            border-color: var(--gold) !important;
-            box-shadow: 0 0 12px rgba(240,192,64,0.4);
+            border: 2px solid var(--accent) !important;
+            box-shadow: 0 0 0 2px rgba(232,82,26,0.2);
         }
+
         .month-cell.selected {
-            background: rgba(193,127,36,0.3) !important;
-            border-color: var(--primary-light) !important;
+            box-shadow: 0 0 0 3px rgba(193,127,36,0.4) !important;
+            transform: scale(1.04);
         }
+
+        /* 格子内各元素 */
         .month-cell .cell-day {
-            font-size: 0.82rem; font-weight: 600;
-            color: var(--text-primary); line-height: 1;
+            font-size: 1.2rem; font-weight: 900;
+            line-height: 1; color: var(--text-primary);
         }
         .month-cell.other-month .cell-day { color: var(--text-dim); }
+        .month-cell.has-data.wx-金 .cell-day,
+        .month-cell.has-data.wx-木 .cell-day,
+        .month-cell.has-data.wx-水 .cell-day,
+        .month-cell.has-data.wx-火 .cell-day,
+        .month-cell.has-data.wx-土 .cell-day { color: #1A1A1A; }
+
         .month-cell .cell-jiazi {
-            font-size: 0.62rem; font-weight: 700; line-height: 1;
+            font-size: 0.95rem; font-weight: 800; line-height: 1;
+            letter-spacing: 0.08em;
         }
-        .month-cell .cell-luck-dot {
-            width: 6px; height: 6px; border-radius: 50%; margin-top: 1px;
+        .month-cell.has-data.wx-金 .cell-jiazi { color: #8A6A08; }
+        .month-cell.has-data.wx-木 .cell-jiazi { color: #1A5A22; }
+        .month-cell.has-data.wx-水 .cell-jiazi { color: #1A4088; }
+        .month-cell.has-data.wx-火 .cell-jiazi { color: #8A1A08; }
+        .month-cell.has-data.wx-土 .cell-jiazi { color: #7A3810; }
+
+        .month-cell .cell-luck-label {
+            font-size: 0.75rem; font-weight: 800; line-height: 1.2;
+            padding: 2px 8px; border-radius: 8px;
+            letter-spacing: 0.05em;
         }
+        .month-cell .cell-score {
+            font-size: 0.72rem; font-weight: 700; line-height: 1;
+        }
+
         .month-cell .cell-today-tag {
-            position: absolute; top: 2px; right: 3px;
-            font-size: 0.48rem; font-weight: 800;
-            color: var(--gold); letter-spacing: 0.03em;
+            position: absolute; top: 3px; right: 4px;
+            font-size: 0.55rem; font-weight: 900;
+            background: var(--accent); color: #FFF;
+            padding: 1px 5px; border-radius: 6px;
+            letter-spacing: 0.03em;
         }
 
         /* 无数据月份遮罩 */
@@ -567,15 +715,11 @@
             min-height: 200px; color: var(--text-muted);
             gap: var(--space-md);
         }
-        .month-no-data-overlay .no-data-icon { font-size: 3rem; opacity: 0.4; }
+        .month-no-data-overlay .no-data-icon { font-size: 3rem; opacity: 0.3; }
         .month-no-data-overlay .no-data-text { font-size: 1rem; font-weight: 600; }
 
-        /* 五行颜色 - 月历版 */
-        .month-cell.wx-金 .cell-jiazi { color: #E8C84A; }
-        .month-cell.wx-木 .cell-jiazi { color: #4CAF50; }
-        .month-cell.wx-水 .cell-jiazi { color: #4A9ECC; }
-        .month-cell.wx-火 .cell-jiazi { color: #E8521A; }
-        .month-cell.wx-土 .cell-jiazi { color: #C17F24; }
+        /* 五行颜色 - 月历版（已废弃旧版）*/
+        /* 使用上面的 .has-data.wx-* 代替 */
 
         /* 滑动过渡 */
         .month-grid.sliding-left { animation: slideLeft 0.3s ease; }
@@ -589,7 +733,7 @@
             to   { opacity: 1; transform: translateX(0); }
         }
 
-        /* ── 六十甲子网格卡片（共享五行渐变） ── */
+        /* ── 六十甲子网格卡片（极简五行配色） ── */
         .day-card {
             border-radius: var(--radius-lg);
             padding: var(--space-lg) var(--space-md);
@@ -598,18 +742,20 @@
             transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
             position: relative; overflow: hidden;
             border: 2px solid transparent;
+            box-shadow: var(--shadow-sm);
         }
-        .day-card:hover { opacity: 0.9; transform: scale(0.97); }
-        .dc-wx-金 { background: linear-gradient(160deg, #3A2A00 0%, #6B4A10 40%, #C89020 100%); border-color: #D4A030; box-shadow: 0 8px 30px rgba(212,160,48,0.4); }
-        .dc-wx-木 { background: linear-gradient(160deg, #0A2210 0%, #1A5020 40%, #2D8040 100%); border-color: #3A9040; box-shadow: 0 8px 30px rgba(58,144,64,0.4); }
-        .dc-wx-水 { background: linear-gradient(160deg, #040A20 0%, #0A2060 40%, #1A50A0 100%); border-color: #2060B0; box-shadow: 0 8px 30px rgba(32,96,176,0.4); }
-        .dc-wx-火 { background: linear-gradient(160deg, #2A0800 0%, #6A1800 40%, #B84010 100%); border-color: #D04A10; box-shadow: 0 8px 30px rgba(208,74,16,0.4); }
-        .dc-wx-土 { background: linear-gradient(160deg, #201410 0%, #6A3A18 40%, #A86030 100%); border-color: #B87040; box-shadow: 0 8px 30px rgba(184,112,64,0.35); }
-        .dc-wx-emoji { position: absolute; top: 10px; right: 12px; font-size: 18px; opacity: 0.7; }
-        .dc-jiazi { font-size: 2.0rem; font-weight: 700; color: rgba(255,255,255,0.92); margin: 6px 0; letter-spacing: 0.1em; text-shadow: 0 2px 12px rgba(0,0,0,0.5); }
-        .dc-hex { font-size: 0.78rem; color: rgba(255,255,255,0.6); margin-bottom: var(--space-sm); }
+        .day-card:hover { opacity: 0.92; transform: scale(0.97); }
+        .dc-wx-金 { background: var(--wx-metal-bg); border-color: var(--wx-metal); }
+        .dc-wx-木 { background: var(--wx-wood-bg); border-color: var(--wx-wood); }
+        .dc-wx-水 { background: var(--wx-water-bg); border-color: var(--wx-water); }
+        .dc-wx-火 { background: var(--wx-fire-bg); border-color: var(--wx-fire); }
+        .dc-wx-土 { background: var(--wx-earth-bg); border-color: var(--wx-earth); }
+        .dc-wx-emoji { position: absolute; top: 10px; right: 12px; font-size: 18px; opacity: 0.5; }
+        .dc-jiazi { font-size: 2.0rem; font-weight: 700; color: var(--text-primary); margin: 6px 0; letter-spacing: 0.1em; }
+        .dc-hex { font-size: 0.78rem; color: var(--text-secondary); margin-bottom: var(--space-sm); }
         .dc-recs { display: flex; flex-wrap: wrap; gap: 4px; justify-content: center; }
-        .dc-rec-tag { padding: 2px 8px; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.2); border-radius: 12px; font-size: 0.68rem; color: rgba(255,255,255,0.8); }
+        .dc-rec-tag { padding: 2px 8px; background: rgba(255,255,255,0.5); border: 1px solid rgba(0,0,0,0.08); border-radius: 12px; font-size: 0.68rem; color: var(--text-secondary); }
+        .dc-nayin { font-size:0.72rem; color:var(--text-secondary); font-weight:600; margin-top:2px; letter-spacing:0.02em; }
 
         /* ═══════════════════════════════════════════════════════════════
            运势模块
@@ -641,13 +787,13 @@
 
         .fortune-result {
             padding: var(--space-xl);
-            background: rgba(193,127,36,0.08);
+            background: var(--bg-primary);
             border-radius: var(--radius-lg);
-            border: 1px solid rgba(193,127,36,0.2);
+            border: 1px solid var(--bg-glass-b);
             margin-top: var(--space-xl);
         }
         .fortune-luck-level {
-            font-size: 1.8rem; font-weight: 700; color: var(--gold);
+            font-size: 1.8rem; font-weight: 700; color: var(--primary);
             margin-bottom: var(--space-md);
         }
         .fortune-yi-ji {
@@ -658,26 +804,102 @@
         .fortune-ji .label { color: var(--luck-bad); }
         .fortune-yi, .fortune-ji {
             padding: var(--space-md) var(--space-xl);
-            background: rgba(255,255,255,0.04);
+            background: var(--bg-card);
             border-radius: var(--radius-md);
+            border: 1px solid var(--bg-glass-b);
         }
         .fortune-tips { color: var(--text-muted); font-size: 0.9rem; }
 
         /* 知识卡片 */
         .know-card {
-            background: rgba(193,127,36,0.08);
-            border: 1px solid rgba(193,127,36,0.2);
+            background: var(--bg-card);
+            border: 1px solid var(--bg-glass-b);
             border-radius: var(--radius-lg);
             padding: var(--space-xl);
             text-align: left;
             margin-top: var(--space-lg);
         }
         .know-term {
-            font-size: 1.3rem; font-weight: 700; color: var(--gold);
+            font-size: 1.3rem; font-weight: 700; color: var(--primary);
             margin-bottom: var(--space-sm);
         }
         .know-desc { color: var(--text-secondary); line-height: 1.8; font-size: 0.92rem; }
         .know-emoji { font-size: 2rem; margin-bottom: var(--space-sm); }
+
+        /* 求签抽签区 */
+        .fortune-draw-area {
+            display: flex; flex-direction: column; align-items: center; gap: var(--space-lg);
+            padding: var(--space-xl) 0;
+        }
+        .fortune-icon.shaking {
+            animation: shake-x 0.15s ease-in-out 5;
+        }
+
+        /* 签文结果区 */
+        .fortune-result {
+            text-align: left; margin-top: var(--space-lg);
+            animation: fadeIn 0.5s ease;
+        }
+        .sign-header {
+            text-align: center; padding-bottom: var(--space-lg);
+            margin-bottom: var(--space-lg);
+            border-bottom: 2px dashed var(--bg-glass-b);
+        }
+        .sign-level {
+            display: inline-block; color: #FFF; font-weight: 800; font-size: 0.85rem;
+            padding: 4px 18px; border-radius: var(--radius-full); margin-bottom: 8px;
+        }
+        .sign-name {
+            font-size: 2rem; font-weight: 900; letter-spacing: 0.12em;
+        }
+
+        /* 签文诗句 */
+        .sign-poem {
+            text-align: center; font-size: 1.05rem; line-height: 2;
+            color: var(--text-secondary); font-style: italic;
+            background: var(--bg-secondary); border-radius: var(--radius-lg);
+            padding: var(--space-lg); margin-bottom: var(--space-lg);
+            border: 1px solid var(--bg-glass-b);
+        }
+
+        /* 解读分类网格 */
+        .sign-category-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+            margin-bottom: var(--space-lg);
+        }
+        .sign-cat-card {
+            background: var(--bg-card); border: 1px solid var(--bg-glass-b);
+            border-radius: var(--radius-md); padding: 12px;
+        }
+        .sign-cat-card:nth-child(1) {
+            grid-column: 1 / -1;
+            border-left: 3px solid var(--gold);
+        }
+        .scc-title {
+            font-weight: 700; font-size: 0.9rem; color: var(--text-primary);
+            margin-bottom: 6px; display: flex; align-items: center; gap: 6px;
+        }
+        .scc-emoji { font-size: 1.1rem; }
+        .scc-text {
+            font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6;
+        }
+
+        /* 建议条 */
+        .sign-advice {
+            display: flex; align-items: flex-start; gap: 8px;
+            background: linear-gradient(135deg, rgba(193,127,36,0.08), rgba(232,82,26,0.05));
+            border: 1px solid rgba(193,127,36,0.2); border-radius: var(--radius-md);
+            padding: 12px 14px; font-size: 0.85rem; color: var(--text-primary);
+            line-height: 1.5;
+        }
+        .sa-icon { font-size: 1.1rem; flex-shrink: 0; }
+
+        @media (max-width: 480px) {
+            .sign-category-grid { grid-template-columns: 1fr; }
+            .sign-cat-card:nth-child(1) { grid-column: 1; }
+            .sign-poem { font-size: 0.95rem; padding: var(--space-md); }
+            .sign-name { font-size: 1.6rem; }
+        }
 
         /* ═══════════════════════════════════════════════════════════════
            六十甲子网格
@@ -705,17 +927,18 @@
         .modal-overlay.on { display: flex; }
 
         .modal {
-            background: linear-gradient(160deg, rgba(30,18,6,0.98), rgba(20,12,4,0.98));
+            background: var(--bg-primary);
             border-radius: var(--radius-xl) var(--radius-xl) 0 0;
             padding: var(--space-xl);
             max-width: 560px; width: 100%;
             max-height: 88vh; overflow-y: auto;
-            border: 1px solid rgba(193,127,36,0.3);
+            border: 1px solid var(--bg-glass-b);
             border-bottom: none;
+            box-shadow: 0 -4px 24px rgba(0,0,0,0.1);
             animation: slideUp 0.3s ease;
         }
         @media (min-width: 600px) {
-            .modal { border-radius: var(--radius-xl); border-bottom: 1px solid rgba(193,127,36,0.3); }
+            .modal { border-radius: var(--radius-xl); border-bottom: 1px solid var(--bg-glass-b); }
         }
         @keyframes slideUp {
             from { opacity: 0; transform: translateY(30px); }
@@ -728,17 +951,17 @@
         }
         .modal-title {
             font-size: 1.2rem; font-weight: 700;
-            color: var(--primary-light); letter-spacing: 0.05em;
+            color: var(--text-primary); letter-spacing: 0.05em;
         }
         .modal-close {
-            background: rgba(193,127,36,0.15); border: none;
+            background: var(--bg-secondary); border: none;
             color: var(--text-secondary);
             width: 36px; height: 36px; border-radius: 50%;
             cursor: pointer; font-size: 1.2rem;
             display: flex; align-items: center; justify-content: center;
             transition: all var(--transition-fast);
         }
-        .modal-close:hover { background: rgba(193,127,36,0.3); color: var(--gold); }
+        .modal-close:hover { background: var(--bg-tertiary); color: var(--accent); }
 
         /* 详情内容 */
         .detail-hero {
@@ -750,12 +973,18 @@
         }
         .detail-jiazi {
             font-size: 3rem; font-weight: 700;
-            color: rgba(255,255,255,0.95);
             letter-spacing: 0.15em;
-            text-shadow: 0 2px 20px rgba(0,0,0,0.5);
         }
         .detail-date-text {
-            font-size: 1.0rem; color: rgba(255,255,255,0.7); margin-top: 6px;
+            font-size: 1.0rem; margin-top: 6px;
+        }
+
+        .detail-wx-badge {
+            display: inline-block;
+            font-size: 1.05rem; font-weight: 700;
+            padding: 6px 16px; margin: 8px 0 0 0;
+            border-radius: var(--radius-full);
+            letter-spacing: 0.08em;
         }
 
         .detail-luck-badge {
@@ -763,8 +992,8 @@
             padding: 10px 24px;
             border-radius: var(--radius-full);
             font-size: 1.1rem; font-weight: 800;
-            color: #0A0904; margin: var(--space-md) 0;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            color: #FFF; margin: var(--space-md) 0;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
         }
 
         .detail-grid {
@@ -772,8 +1001,8 @@
             gap: var(--space-sm); margin-bottom: var(--space-md);
         }
         .detail-item {
-            background: rgba(193,127,36,0.08);
-            border: 1px solid rgba(193,127,36,0.18);
+            background: var(--bg-card);
+            border: 1px solid var(--bg-glass-b);
             border-radius: var(--radius-md);
             padding: var(--space-md);
             text-align: center;
@@ -782,15 +1011,15 @@
         .detail-item .dv { font-size: 0.95rem; font-weight: 700; color: var(--text-primary); }
 
         .detail-section {
-            background: rgba(193,127,36,0.06);
-            border: 1px solid rgba(193,127,36,0.15);
+            background: var(--bg-card);
+            border: 1px solid var(--bg-glass-b);
             border-radius: var(--radius-md);
             padding: var(--space-md) var(--space-lg);
             margin-bottom: var(--space-sm);
         }
         .detail-section-title {
             font-size: 0.82rem; font-weight: 700;
-            color: var(--primary-light); margin-bottom: var(--space-sm);
+            color: var(--text-primary); margin-bottom: var(--space-sm);
             display: flex; align-items: center; gap: 6px;
         }
 
@@ -799,18 +1028,90 @@
         }
         .yi-tag {
             padding: 4px 12px;
-            background: rgba(74,158,204,0.15);
+            background: rgba(74,158,204,0.12);
             border: 1px solid rgba(74,158,204,0.3);
             border-radius: var(--radius-full);
-            font-size: 0.78rem; color: #6CBCDF;
+            font-size: 0.78rem; color: #2A6A90;
         }
         .ji-tag {
             padding: 4px 12px;
-            background: rgba(232,82,26,0.15);
-            border: 1px solid rgba(232,82,26,0.3);
+            background: rgba(232,82,26,0.1);
+            border: 1px solid rgba(232,82,26,0.25);
             border-radius: var(--radius-full);
-            font-size: 0.78rem; color: #F0845A;
+            font-size: 0.78rem; color: #C04020;
         }
+
+        /* ── 五行属性条 ── */
+        .wx-strip {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px;
+            margin: 12px 0 16px 0;
+        }
+        .wx-strip-item {
+            background: var(--bg-card); border: 1px solid var(--bg-glass-b);
+            border-radius: var(--radius-sm); padding: 8px 4px; text-align: center;
+        }
+        .wx-strip-item .wsl { font-size: 0.68rem; color: var(--text-muted); margin-bottom: 2px; }
+        .wx-strip-item .wsv { font-size: 0.88rem; font-weight: 700; color: var(--text-primary); }
+
+        /* ── 时辰推荐卡片 ── */
+        .hour-rec-section { margin: 14px 0; }
+        .hour-rec-title {
+            font-size: 0.95rem; font-weight: 700; margin-bottom: 10px;
+            display: flex; align-items: center; gap: 6px;
+        }
+        .ji-title { color: #2A7A30; }
+        .xiong-title { color: #C04020; }
+
+        .hour-rec-card {
+            background: var(--bg-card); border: 1px solid var(--bg-glass-b);
+            border-radius: var(--radius-md); padding: 12px; margin-bottom: 8px;
+            display: flex; gap: 10px;
+        }
+        .hour-rec-card.ji { border-left: 4px solid #3A8A40; background: rgba(58,138,64,0.04); }
+        .hour-rec-card.xiong { border-left: 4px solid #D04020; background: rgba(208,64,32,0.04); }
+
+        .hr-time { min-width: 72px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .hr-name { font-size: 1.3rem; font-weight: 800; color: var(--text-primary); line-height: 1.2; }
+        .hr-range { font-size: 0.68rem; color: var(--text-muted); white-space: nowrap; }
+        .hr-badge {
+            font-size: 0.72rem; font-weight: 800; padding: 2px 12px; border-radius: var(--radius-full);
+            margin-top: 4px;
+        }
+        .ji-badge { background: #E8F5E9; color: #2A7A30; }
+        .xiong-badge { background: #FDE8E8; color: #C04020; }
+
+        .hr-body { flex: 1; min-width: 0; }
+        .hr-acts-label { font-size: 0.68rem; color: var(--text-muted); margin-bottom: 6px; }
+        .avoid-label { color: #C04020; }
+
+        .hr-acts { display: flex; flex-wrap: wrap; gap: 6px; }
+        .hr-act-block {
+            background: var(--bg-glass-b); border-radius: var(--radius-md);
+            padding: 6px 10px; margin-bottom: 2px;
+        }
+        .hr-act {
+            font-size: 0.82rem; font-weight: 600; color: var(--text-primary);
+        }
+        .hr-dir {
+            display: inline-block; font-size: 0.7rem; color: var(--text-muted);
+            margin-left: 4px;
+        }
+        .hr-tip {
+            display: block; font-size: 0.65rem; color: var(--text-dim);
+            margin-top: 3px; font-style: italic;
+        }
+
+        /* ── 年/月信息行 ── */
+        .year-month-row {
+            display: flex; gap: 6px; margin: 12px 0;
+        }
+        .year-month-item {
+            flex: 1; background: var(--bg-card); border: 1px solid var(--bg-glass-b);
+            border-radius: var(--radius-md); padding: 10px; text-align: center;
+        }
+        .year-month-item .yml { font-size: 0.68rem; color: var(--text-muted); }
+        .year-month-item .ymv { font-size: 0.95rem; font-weight: 700; color: var(--text-primary); }
+        .year-month-item .yms { font-size: 0.72rem; font-weight: 400; color: var(--text-muted); }
 
         /* 穿衣颜色块 */
         .outfit-colors {
@@ -848,30 +1149,29 @@
         /* ── 表格 ── */
         table { width: 100%; border-collapse: collapse; margin-bottom: var(--space-md); }
         th {
-            background: rgba(193,127,36,0.15); padding: var(--space-md);
+            background: var(--bg-secondary); padding: var(--space-md);
             text-align: left; font-size: 0.85rem; font-weight: 600;
-            color: var(--primary-light);
-            border-bottom: 2px solid rgba(193,127,36,0.3);
+            color: var(--text-primary);
+            border-bottom: 2px solid var(--bg-glass-b);
         }
         td {
-            padding: var(--space-md); border-bottom: 1px solid rgba(255,255,255,0.06);
+            padding: var(--space-md); border-bottom: 1px solid var(--bg-glass-b);
             font-size: 0.88rem; color: var(--text-primary);
         }
-        tr:hover td { background: rgba(193,127,36,0.08); }
+        tr:hover td { background: var(--bg-secondary); }
 
         /* ── Toast ── */
         .share-toast {
             position: fixed; bottom: 100px; left: 50%;
             transform: translateX(-50%) translateY(20px);
-            background: rgba(30,18,6,0.95);
-            color: var(--gold-light);
+            background: var(--text-primary);
+            color: #FFF;
             padding: var(--space-sm) var(--space-xl);
             border-radius: var(--radius-full);
             font-size: 0.9rem; font-weight: 600;
             z-index: 9999; opacity: 0;
             transition: all 0.3s ease;
-            border: 1px solid rgba(193,127,36,0.35);
-            box-shadow: var(--shadow-md);
+            box-shadow: var(--shadow-lg);
             pointer-events: none;
         }
         .share-toast.show {
@@ -880,8 +1180,7 @@
 
         /* ── 底部 ── */
         .footer {
-            background: var(--bg-glass);
-            backdrop-filter: blur(15px);
+            background: var(--bg-card);
             border-top: 1px solid var(--bg-glass-b);
             padding: var(--space-lg) 0;
             margin-top: var(--space-2xl);
@@ -908,13 +1207,13 @@
             font-size: 0.82rem; color: var(--text-muted);
             text-decoration: none; margin-left: var(--space-md);
         }
-        .footer-link:hover { color: var(--primary-light); }
+        .footer-link:hover { color: var(--primary); }
 
         /* ── 滚动条 ── */
         ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-track { background: rgba(193,127,36,0.05); }
+        ::-webkit-scrollbar-track { background: var(--bg-secondary); }
         ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, var(--primary), var(--accent));
+            background: var(--bg-tertiary);
             border-radius: 3px;
         }
 
@@ -922,9 +1221,11 @@
         @media (max-width: 480px) {
             .today-banner { flex-direction: column; align-items: flex-start; }
             .top-nav-links { display: none; }
-            .month-cell { min-height: 48px; padding: 3px 1px; }
-            .month-cell .cell-day { font-size: 0.72rem; }
-            .month-cell .cell-jiazi { font-size: 0.55rem; }
+            .month-cell { padding: 2px 1px; }
+            .month-cell .cell-day { font-size: 1.05rem; }
+            .month-cell .cell-jiazi { font-size: 0.82rem; }
+            .month-cell .cell-luck-label { font-size: 0.65rem; }
+            .month-cell .cell-score { font-size: 0.62rem; }
             .hero-title { font-size: 1.6rem; }
             .hero { padding: var(--space-xl) var(--space-md); }
             .glass-box { padding: var(--space-lg); }
@@ -933,9 +1234,10 @@
             .modal { padding: var(--space-lg); }
         }
         @media (max-width: 360px) {
-            .month-cell { min-height: 42px; }
-            .month-cell .cell-day { font-size: 0.65rem; }
-            .month-cell .cell-jiazi { font-size: 0.48rem; }
+            .month-cell .cell-day { font-size: 0.92rem; }
+            .month-cell .cell-jiazi { font-size: 0.72rem; }
+            .month-cell .cell-luck-label { font-size: 0.58rem; }
+            .month-cell .cell-score { font-size: 0.55rem; }
             .hour-grid { grid-template-columns: repeat(3, 1fr); }
         }
 
@@ -959,24 +1261,24 @@
             display: flex; align-items: center; justify-content: center;
             gap: 8px; width: 100%; padding: var(--space-md);
             margin-top: var(--space-md);
-            background: linear-gradient(135deg, rgba(74,158,204,0.2), rgba(107,78,168,0.2));
-            border: 1px solid rgba(74,158,204,0.35);
+            background: linear-gradient(135deg, rgba(74,158,204,0.1), rgba(107,78,168,0.08));
+            border: 1px solid rgba(74,158,204,0.25);
             border-radius: var(--radius-md);
-            color: #6CBCDF; font-size: 0.95rem; font-weight: 700;
+            color: #2A6A90; font-size: 0.95rem; font-weight: 700;
             cursor: pointer; transition: all var(--transition-normal);
             font-family: inherit; min-height: 48px;
         }
         .ai-btn:hover {
-            background: linear-gradient(135deg, rgba(74,158,204,0.35), rgba(107,78,168,0.35));
-            box-shadow: 0 4px 20px rgba(74,158,204,0.3);
+            background: linear-gradient(135deg, rgba(74,158,204,0.18), rgba(107,78,168,0.14));
+            box-shadow: 0 4px 16px rgba(74,158,204,0.2);
             transform: translateY(-2px);
         }
         .ai-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
         .ai-result {
             margin-top: var(--space-md);
             padding: var(--space-lg);
-            background: rgba(74,158,204,0.08);
-            border: 1px solid rgba(74,158,204,0.2);
+            background: var(--bg-card);
+            border: 1px solid var(--bg-glass-b);
             border-radius: var(--radius-md);
             font-size: 0.88rem; color: var(--text-secondary);
             line-height: 1.8; white-space: pre-wrap;
@@ -989,8 +1291,8 @@
         }
         .ai-loading .spinner {
             width: 20px; height: 20px;
-            border: 3px solid rgba(74,158,204,0.2);
-            border-top-color: #6CBCDF;
+            border: 3px solid rgba(74,158,204,0.15);
+            border-top-color: #4080B8;
             border-radius: 50%;
             animation: spin 0.8s linear infinite;
         }
@@ -998,10 +1300,10 @@
         .ai-error {
             margin-top: var(--space-md);
             padding: var(--space-md);
-            background: rgba(208,48,48,0.1);
-            border: 1px solid rgba(208,48,48,0.25);
+            background: rgba(208,48,48,0.08);
+            border: 1px solid rgba(208,48,48,0.2);
             border-radius: var(--radius-md);
-            color: #E87070; font-size: 0.85rem;
+            color: #C03030; font-size: 0.85rem;
         }
 
         /* ═══════════════════════════════════════════════════════════════
@@ -1010,29 +1312,29 @@
         .dev-trigger {
             position: fixed; bottom: 24px; right: 24px;
             width: 48px; height: 48px; border-radius: 50%;
-            background: linear-gradient(135deg, rgba(193,127,36,0.6), rgba(232,82,26,0.4));
-            border: 1px solid rgba(193,127,36,0.4);
-            color: var(--gold-light); font-size: 1.4rem;
+            background: var(--bg-card);
+            border: 1px solid var(--bg-glass-b);
+            color: var(--text-secondary); font-size: 1.4rem;
             cursor: pointer;
             display: flex; align-items: center; justify-content: center;
             z-index: 998; box-shadow: var(--shadow-md);
             transition: all var(--transition-normal);
-            backdrop-filter: blur(12px);
         }
         .dev-trigger:hover { transform: scale(1.1) rotate(30deg); box-shadow: var(--shadow-glow); }
         .dev-panel-overlay {
             display: none; position: fixed; inset: 0;
-            background: rgba(0,0,0,0.85); backdrop-filter: blur(12px);
+            background: rgba(0,0,0,0.5); backdrop-filter: blur(8px);
             z-index: 9999; overflow-y: auto; padding: var(--space-lg);
         }
         .dev-panel-overlay.on { display: block; }
         .dev-panel {
             max-width: 680px; margin: 0 auto;
-            background: linear-gradient(160deg, rgba(30,18,6,0.98), rgba(14,9,4,0.98));
+            background: var(--bg-primary);
             border-radius: var(--radius-xl);
-            border: 1px solid rgba(193,127,36,0.3);
+            border: 1px solid var(--bg-glass-b);
             padding: var(--space-xl);
             animation: fadeIn 0.3s ease;
+            box-shadow: var(--shadow-lg);
         }
         .dev-panel-hdr {
             display: flex; justify-content: space-between; align-items: center;
@@ -1040,15 +1342,15 @@
         }
         .dev-panel-title {
             font-size: 1.3rem; font-weight: 700;
-            color: var(--gold-light); letter-spacing: 0.05em;
+            color: var(--text-primary); letter-spacing: 0.05em;
         }
         .dev-section { margin-bottom: var(--space-xl); }
         .dev-section-title {
             font-size: 0.95rem; font-weight: 700;
-            color: var(--primary-light);
+            color: var(--text-primary);
             margin-bottom: var(--space-md);
             padding-bottom: var(--space-sm);
-            border-bottom: 1px solid rgba(193,127,36,0.2);
+            border-bottom: 1px solid var(--bg-glass-b);
             display: flex; align-items: center; gap: 6px;
         }
         .dev-var-row {
@@ -1063,7 +1365,7 @@
         .dev-var-swatch {
             width: 36px; height: 36px;
             border-radius: var(--radius-sm);
-            border: 2px solid rgba(255,255,255,0.15);
+            border: 1px solid var(--bg-glass-b);
             cursor: pointer; transition: transform var(--transition-fast);
         }
         .dev-var-swatch:hover { transform: scale(1.15); }
@@ -1074,8 +1376,8 @@
         }
         .dev-var-hex-input {
             padding: 6px 10px;
-            background: rgba(193,127,36,0.08);
-            border: 1px solid rgba(193,127,36,0.25);
+            background: var(--bg-primary);
+            border: 1px solid var(--bg-glass-b);
             border-radius: var(--radius-sm);
             color: var(--text-primary);
             font-size: 0.82rem; font-family: monospace;
@@ -1083,7 +1385,7 @@
         }
         .dev-var-hex-input:focus {
             outline: none; border-color: var(--primary);
-            box-shadow: 0 0 0 2px rgba(193,127,36,0.2);
+            box-shadow: 0 0 0 2px rgba(193,127,36,0.15);
         }
         .dev-actions {
             display: flex; gap: var(--space-sm);
@@ -1092,41 +1394,33 @@
         .dev-action-btn {
             padding: var(--space-sm) var(--space-lg);
             border-radius: var(--radius-full);
-            border: 1px solid rgba(193,127,36,0.3);
-            background: rgba(193,127,36,0.1);
-            color: var(--primary-light);
+            border: 1px solid var(--bg-glass-b);
+            background: var(--bg-card);
+            color: var(--text-primary);
             font-size: 0.85rem; font-weight: 600;
             cursor: pointer; transition: all var(--transition-fast);
             font-family: inherit;
         }
-        .dev-action-btn:hover { background: rgba(193,127,36,0.25); box-shadow: var(--shadow-sm); }
+        .dev-action-btn:hover { background: var(--bg-secondary); box-shadow: var(--shadow-sm); }
         .dev-action-btn.primary-action {
             background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: #FFF8EC; border-color: transparent;
+            color: #FFF; border-color: transparent;
         }
         .dev-api-input {
             width: 100%; padding: var(--space-md);
-            background: rgba(193,127,36,0.08);
-            border: 1px solid rgba(193,127,36,0.25);
+            background: var(--bg-primary);
+            border: 1px solid var(--bg-glass-b);
             border-radius: var(--radius-md);
             color: var(--text-primary);
             font-size: 0.88rem; font-family: monospace;
         }
         .dev-api-input:focus {
             outline: none; border-color: var(--primary);
-            box-shadow: 0 0 0 2px rgba(193,127,36,0.2);
+            box-shadow: 0 0 0 2px rgba(193,127,36,0.15);
         }
     </style>
 </head>
 <body>
-    <div class="bg-pattern"></div>
-    <div class="trigram-deco"></div>
-    <div class="glow-orbs">
-        <div class="glow-orb"></div>
-        <div class="glow-orb"></div>
-        <div class="glow-orb"></div>
-    </div>
-
     <div class="container">
 
         <!-- 顶部实时日期横幅 -->
@@ -1208,12 +1502,33 @@
                         </select>
                     </div>
                 </div>
-                <button class="btn btn-primary"
-                    onclick="queryFortune()"
-                    ontouchend="this._touched=true"
-                    style="margin-top:8px;">
-                    🔍 开始查询
-                </button>
+                <div style="display:flex;gap:10px;margin-top:8px;">
+                    <button class="btn btn-primary"
+                        onclick="queryFortune()"
+                        ontouchend="this._touched=true"
+                        style="flex:2;">
+                        🔍 开始查询
+                    </button>
+                    <button class="btn btn-reset"
+                        onclick="resetQuery()"
+                        ontouchend="this._touched=true"
+                        style="flex:1;">
+                        🔄 重置
+                    </button>
+                </div>
+            </div>
+
+            <!-- 周视觉 -->
+            <div class="week-view" id="week-view">
+                <div class="week-view-header">
+                    <div class="week-view-title">📅 七日预览</div>
+                    <div class="week-nav-btns">
+                        <button class="week-nav-btn" id="week-prev" title="前一天">←</button>
+                        <button class="week-nav-btn today-btn" id="week-today" title="回到今天">今天</button>
+                        <button class="week-nav-btn" id="week-next" title="后一天">→</button>
+                    </div>
+                </div>
+                <div class="week-strip" id="week-strip"></div>
             </div>
 
             <!-- 月份月历网格 -->
@@ -1237,16 +1552,17 @@
         <!-- 面板：运势测算 -->
         <div class="panel" id="panel-fortune">
             <div class="glass-box fortune-box">
-                <h2>八字命格科普</h2>
-                <div class="fortune-header">
-                    <span class="fortune-icon">🏮</span>
+                <h2>🔮 灵签求测</h2>
+                <p class="section-desc" style="margin-bottom:20px;">心诚则灵，摇签问事。点击签筒抽取您的运势签文，解读涵盖整体、健康、家庭、事业、学业五大方面。</p>
+                <div class="fortune-draw-area">
+                    <div class="fortune-icon">🏮</div>
+                    <button class="btn btn-primary shake-btn"
+                        onclick="shakeFortune()"
+                        ontouchend="this.onclick()">
+                        🎋 摇签求测
+                    </button>
                 </div>
-                <button class="btn btn-primary shake-btn"
-                    onclick="shakeFortune()"
-                    ontouchend="this.onclick()">
-                    🎲 随机科普
-                </button>
-                <div class="know-card" id="know-card" style="display:none;"></div>
+                <div class="fortune-result" id="fortune-result" style="display:none;"></div>
             </div>
         </div>
 
@@ -1403,72 +1719,73 @@
         </div>
     </div>
 
+    <script src="fortune_data.js"></script>
     <script>
     // ═══════════════════════════════════════════════════════
     //   六十甲子 & 2026 数据
     // ═══════════════════════════════════════════════════════
 
     const sixtyJiaziData = [
-        { id:1,  jiazi:"甲子", hexagram:"坤为地",   xuankongWuxing:"1水", guayun:"一", bagua:"坤" },
-        { id:2,  jiazi:"乙丑", hexagram:"火雷噬嗑", xuankongWuxing:"3木", guayun:"六", bagua:"巽" },
-        { id:3,  jiazi:"丙寅", hexagram:"风火家人", xuankongWuxing:"2火", guayun:"四", bagua:"巽" },
-        { id:4,  jiazi:"丁卯", hexagram:"山泽损",   xuankongWuxing:"6水", guayun:"九", bagua:"艮" },
-        { id:5,  jiazi:"戊辰", hexagram:"天泽履",   xuankongWuxing:"9金", guayun:"六", bagua:"艮" },
-        { id:6,  jiazi:"己巳", hexagram:"雷天大壮", xuankongWuxing:"8木", guayun:"二", bagua:"坤" },
-        { id:7,  jiazi:"庚午", hexagram:"雷风恒",   xuankongWuxing:"8木", guayun:"九", bagua:"震" },
-        { id:8,  jiazi:"辛未", hexagram:"天水讼",   xuankongWuxing:"9金", guayun:"三", bagua:"离" },
-        { id:9,  jiazi:"壬申", hexagram:"地水师",   xuankongWuxing:"1水", guayun:"七", bagua:"坎" },
-        { id:10, jiazi:"癸酉", hexagram:"风山渐",   xuankongWuxing:"2火", guayun:"七", bagua:"艮" },
-        { id:11, jiazi:"甲戌", hexagram:"水山蹇",   xuankongWuxing:"7火", guayun:"二", bagua:"兑" },
-        { id:12, jiazi:"乙亥", hexagram:"火地晋",   xuankongWuxing:"3木", guayun:"三", bagua:"乾" },
-        { id:13, jiazi:"丙子", hexagram:"山雷颐",   xuankongWuxing:"6水", guayun:"三", bagua:"巽" },
-        { id:14, jiazi:"丁丑", hexagram:"泽雷随",   xuankongWuxing:"4金", guayun:"七", bagua:"震" },
-        { id:15, jiazi:"戊寅", hexagram:"雷火丰",   xuankongWuxing:"8木", guayun:"六", bagua:"坎" },
-        { id:16, jiazi:"己卯", hexagram:"水泽节",   xuankongWuxing:"7火", guayun:"八", bagua:"坎" },
-        { id:17, jiazi:"庚辰", hexagram:"地天泰",   xuankongWuxing:"1水", guayun:"九", bagua:"坤" },
-        { id:18, jiazi:"辛巳", hexagram:"火天大有", xuankongWuxing:"3木", guayun:"七", bagua:"乾" },
-        { id:19, jiazi:"壬午", hexagram:"风为巽",   xuankongWuxing:"2火", guayun:"一", bagua:"巽" },
-        { id:20, jiazi:"癸未", hexagram:"泽水困",   xuankongWuxing:"4金", guayun:"八", bagua:"兑" },
-        { id:21, jiazi:"甲申", hexagram:"火水未济", xuankongWuxing:"3木", guayun:"九", bagua:"离" },
-        { id:22, jiazi:"乙酉", hexagram:"天山遁",   xuankongWuxing:"9金", guayun:"四", bagua:"乾" },
-        { id:23, jiazi:"丙戌", hexagram:"山为艮",   xuankongWuxing:"6水", guayun:"一", bagua:"艮" },
-        { id:24, jiazi:"丁亥", hexagram:"雷地豫",   xuankongWuxing:"8木", guayun:"八", bagua:"震" },
-        { id:25, jiazi:"戊子", hexagram:"水雷屯",   xuankongWuxing:"7火", guayun:"四", bagua:"坎" },
-        { id:26, jiazi:"己丑", hexagram:"天雷无妄", xuankongWuxing:"9金", guayun:"二", bagua:"巽" },
-        { id:27, jiazi:"庚寅", hexagram:"火为离",   xuankongWuxing:"3木", guayun:"一", bagua:"离" },
-        { id:28, jiazi:"辛卯", hexagram:"风泽中孚", xuankongWuxing:"2火", guayun:"三", bagua:"艮" },
-        { id:29, jiazi:"壬辰", hexagram:"山天大畜", xuankongWuxing:"6水", guayun:"四", bagua:"艮" },
-        { id:30, jiazi:"癸巳", hexagram:"泽天夬",   xuankongWuxing:"4金", guayun:"六", bagua:"坤" },
-        { id:31, jiazi:"甲午", hexagram:"天为乾",   xuankongWuxing:"9金", guayun:"一", bagua:"乾" },
-        { id:32, jiazi:"乙未", hexagram:"水风井",   xuankongWuxing:"7火", guayun:"六", bagua:"震" },
-        { id:33, jiazi:"丙申", hexagram:"雷水解",   xuankongWuxing:"8木", guayun:"四", bagua:"震" },
-        { id:34, jiazi:"丁酉", hexagram:"泽山咸",   xuankongWuxing:"4金", guayun:"九", bagua:"兑" },
-        { id:35, jiazi:"戊戌", hexagram:"地山谦",   xuankongWuxing:"1水", guayun:"六", bagua:"兑" },
-        { id:36, jiazi:"己亥", hexagram:"风地观",   xuankongWuxing:"2火", guayun:"二", bagua:"乾" },
-        { id:37, jiazi:"庚子", hexagram:"风雷益",   xuankongWuxing:"2火", guayun:"九", bagua:"巽" },
-        { id:38, jiazi:"辛丑", hexagram:"地火明夷", xuankongWuxing:"1水", guayun:"三", bagua:"坎" },
-        { id:39, jiazi:"壬寅", hexagram:"天火同人", xuankongWuxing:"9金", guayun:"七", bagua:"离" },
-        { id:40, jiazi:"癸卯", hexagram:"雷泽归妹", xuankongWuxing:"8木", guayun:"七", bagua:"兑" },
-        { id:41, jiazi:"甲辰", hexagram:"火泽睽",   xuankongWuxing:"3木", guayun:"二", bagua:"艮" },
-        { id:42, jiazi:"乙巳", hexagram:"水天需",   xuankongWuxing:"7火", guayun:"三", bagua:"坤" },
-        { id:43, jiazi:"丙午", hexagram:"泽风大过", xuankongWuxing:"4金", guayun:"三", bagua:"震" },
-        { id:44, jiazi:"丁未", hexagram:"山风蛊",   xuankongWuxing:"6水", guayun:"七", bagua:"巽" },
-        { id:45, jiazi:"戊申", hexagram:"风水涣",   xuankongWuxing:"2火", guayun:"六", bagua:"离" },
-        { id:46, jiazi:"己酉", hexagram:"火山旅",   xuankongWuxing:"3木", guayun:"八", bagua:"离" },
-        { id:47, jiazi:"庚戌", hexagram:"天地否",   xuankongWuxing:"9金", guayun:"九", bagua:"乾" },
-        { id:48, jiazi:"辛亥", hexagram:"水地比",   xuankongWuxing:"7火", guayun:"七", bagua:"坤" },
-        { id:49, jiazi:"壬子", hexagram:"雷为震",   xuankongWuxing:"8木", guayun:"一", bagua:"震" },
-        { id:50, jiazi:"癸丑", hexagram:"山火贲",   xuankongWuxing:"6水", guayun:"八", bagua:"艮" },
-        { id:51, jiazi:"甲寅", hexagram:"水火既济", xuankongWuxing:"7火", guayun:"九", bagua:"坎" },
-        { id:52, jiazi:"乙卯", hexagram:"地泽临",   xuankongWuxing:"1水", guayun:"四", bagua:"坤" },
-        { id:53, jiazi:"丙辰", hexagram:"泽为兑",   xuankongWuxing:"4金", guayun:"一", bagua:"兑" },
-        { id:54, jiazi:"丁巳", hexagram:"风天小畜", xuankongWuxing:"2火", guayun:"八", bagua:"巽" },
-        { id:55, jiazi:"戊午", hexagram:"火风鼎",   xuankongWuxing:"3木", guayun:"四", bagua:"离" },
-        { id:56, jiazi:"己未", hexagram:"地风升",   xuankongWuxing:"1水", guayun:"二", bagua:"震" },
-        { id:57, jiazi:"庚申", hexagram:"水为坎",   xuankongWuxing:"7火", guayun:"一", bagua:"坎" },
-        { id:58, jiazi:"辛酉", hexagram:"雷山小过", xuankongWuxing:"8木", guayun:"三", bagua:"兑" },
-        { id:59, jiazi:"壬戌", hexagram:"泽地萃",   xuankongWuxing:"4金", guayun:"四", bagua:"兑" },
-        { id:60, jiazi:"癸亥", hexagram:"山地剥",   xuankongWuxing:"6水", guayun:"六", bagua:"乾" }
+        { id:1,  jiazi:"甲子", hexagram:"坤为地",   xuankongWuxing:"1水", guayun:"一", bagua:"坤", nayinName:"海中金", nayinWuxing:"金" },
+        { id:2,  jiazi:"乙丑", hexagram:"火雷噬嗑", xuankongWuxing:"3木", guayun:"六", bagua:"巽", nayinName:"海中金", nayinWuxing:"金" },
+        { id:3,  jiazi:"丙寅", hexagram:"风火家人", xuankongWuxing:"2火", guayun:"四", bagua:"巽", nayinName:"炉中火", nayinWuxing:"火" },
+        { id:4,  jiazi:"丁卯", hexagram:"山泽损",   xuankongWuxing:"6水", guayun:"九", bagua:"艮", nayinName:"炉中火", nayinWuxing:"火" },
+        { id:5,  jiazi:"戊辰", hexagram:"天泽履",   xuankongWuxing:"9金", guayun:"六", bagua:"艮", nayinName:"大林木", nayinWuxing:"木" },
+        { id:6,  jiazi:"己巳", hexagram:"雷天大壮", xuankongWuxing:"8木", guayun:"二", bagua:"坤", nayinName:"大林木", nayinWuxing:"木" },
+        { id:7,  jiazi:"庚午", hexagram:"雷风恒",   xuankongWuxing:"8木", guayun:"九", bagua:"震", nayinName:"路旁土", nayinWuxing:"土" },
+        { id:8,  jiazi:"辛未", hexagram:"天水讼",   xuankongWuxing:"9金", guayun:"三", bagua:"离", nayinName:"路旁土", nayinWuxing:"土" },
+        { id:9,  jiazi:"壬申", hexagram:"地水师",   xuankongWuxing:"1水", guayun:"七", bagua:"坎", nayinName:"剑锋金", nayinWuxing:"金" },
+        { id:10, jiazi:"癸酉", hexagram:"风山渐",   xuankongWuxing:"2火", guayun:"七", bagua:"艮", nayinName:"剑锋金", nayinWuxing:"金" },
+        { id:11, jiazi:"甲戌", hexagram:"水山蹇",   xuankongWuxing:"7火", guayun:"二", bagua:"兑", nayinName:"山头火", nayinWuxing:"火" },
+        { id:12, jiazi:"乙亥", hexagram:"火地晋",   xuankongWuxing:"3木", guayun:"三", bagua:"乾", nayinName:"山头火", nayinWuxing:"火" },
+        { id:13, jiazi:"丙子", hexagram:"山雷颐",   xuankongWuxing:"6水", guayun:"三", bagua:"巽", nayinName:"涧下水", nayinWuxing:"水" },
+        { id:14, jiazi:"丁丑", hexagram:"泽雷随",   xuankongWuxing:"4金", guayun:"七", bagua:"震", nayinName:"涧下水", nayinWuxing:"水" },
+        { id:15, jiazi:"戊寅", hexagram:"雷火丰",   xuankongWuxing:"8木", guayun:"六", bagua:"坎", nayinName:"城头土", nayinWuxing:"土" },
+        { id:16, jiazi:"己卯", hexagram:"水泽节",   xuankongWuxing:"7火", guayun:"八", bagua:"坎", nayinName:"城头土", nayinWuxing:"土" },
+        { id:17, jiazi:"庚辰", hexagram:"地天泰",   xuankongWuxing:"1水", guayun:"九", bagua:"坤", nayinName:"白蜡金", nayinWuxing:"金" },
+        { id:18, jiazi:"辛巳", hexagram:"火天大有", xuankongWuxing:"3木", guayun:"七", bagua:"乾", nayinName:"白蜡金", nayinWuxing:"金" },
+        { id:19, jiazi:"壬午", hexagram:"风为巽",   xuankongWuxing:"2火", guayun:"一", bagua:"巽", nayinName:"杨柳木", nayinWuxing:"木" },
+        { id:20, jiazi:"癸未", hexagram:"泽水困",   xuankongWuxing:"4金", guayun:"八", bagua:"兑", nayinName:"杨柳木", nayinWuxing:"木" },
+        { id:21, jiazi:"甲申", hexagram:"火水未济", xuankongWuxing:"3木", guayun:"九", bagua:"离", nayinName:"泉中水", nayinWuxing:"水" },
+        { id:22, jiazi:"乙酉", hexagram:"天山遁",   xuankongWuxing:"9金", guayun:"四", bagua:"乾", nayinName:"泉中水", nayinWuxing:"水" },
+        { id:23, jiazi:"丙戌", hexagram:"山为艮",   xuankongWuxing:"6水", guayun:"一", bagua:"艮", nayinName:"屋上土", nayinWuxing:"土" },
+        { id:24, jiazi:"丁亥", hexagram:"雷地豫",   xuankongWuxing:"8木", guayun:"八", bagua:"震", nayinName:"屋上土", nayinWuxing:"土" },
+        { id:25, jiazi:"戊子", hexagram:"水雷屯",   xuankongWuxing:"7火", guayun:"四", bagua:"坎", nayinName:"霹雳火", nayinWuxing:"火" },
+        { id:26, jiazi:"己丑", hexagram:"天雷无妄", xuankongWuxing:"9金", guayun:"二", bagua:"巽", nayinName:"霹雳火", nayinWuxing:"火" },
+        { id:27, jiazi:"庚寅", hexagram:"火为离",   xuankongWuxing:"3木", guayun:"一", bagua:"离", nayinName:"松柏木", nayinWuxing:"木" },
+        { id:28, jiazi:"辛卯", hexagram:"风泽中孚", xuankongWuxing:"2火", guayun:"三", bagua:"艮", nayinName:"松柏木", nayinWuxing:"木" },
+        { id:29, jiazi:"壬辰", hexagram:"山天大畜", xuankongWuxing:"6水", guayun:"四", bagua:"艮", nayinName:"长流水", nayinWuxing:"水" },
+        { id:30, jiazi:"癸巳", hexagram:"泽天夬",   xuankongWuxing:"4金", guayun:"六", bagua:"坤", nayinName:"长流水", nayinWuxing:"水" },
+        { id:31, jiazi:"甲午", hexagram:"天为乾",   xuankongWuxing:"9金", guayun:"一", bagua:"乾", nayinName:"沙中金", nayinWuxing:"金" },
+        { id:32, jiazi:"乙未", hexagram:"水风井",   xuankongWuxing:"7火", guayun:"六", bagua:"震", nayinName:"沙中金", nayinWuxing:"金" },
+        { id:33, jiazi:"丙申", hexagram:"雷水解",   xuankongWuxing:"8木", guayun:"四", bagua:"震", nayinName:"山下火", nayinWuxing:"火" },
+        { id:34, jiazi:"丁酉", hexagram:"泽山咸",   xuankongWuxing:"4金", guayun:"九", bagua:"兑", nayinName:"山下火", nayinWuxing:"火" },
+        { id:35, jiazi:"戊戌", hexagram:"地山谦",   xuankongWuxing:"1水", guayun:"六", bagua:"兑", nayinName:"平地木", nayinWuxing:"木" },
+        { id:36, jiazi:"己亥", hexagram:"风地观",   xuankongWuxing:"2火", guayun:"二", bagua:"乾", nayinName:"平地木", nayinWuxing:"木" },
+        { id:37, jiazi:"庚子", hexagram:"风雷益",   xuankongWuxing:"2火", guayun:"九", bagua:"巽", nayinName:"壁上土", nayinWuxing:"土" },
+        { id:38, jiazi:"辛丑", hexagram:"地火明夷", xuankongWuxing:"1水", guayun:"三", bagua:"坎", nayinName:"壁上土", nayinWuxing:"土" },
+        { id:39, jiazi:"壬寅", hexagram:"天火同人", xuankongWuxing:"9金", guayun:"七", bagua:"离", nayinName:"金箔金", nayinWuxing:"金" },
+        { id:40, jiazi:"癸卯", hexagram:"雷泽归妹", xuankongWuxing:"8木", guayun:"七", bagua:"兑", nayinName:"金箔金", nayinWuxing:"金" },
+        { id:41, jiazi:"甲辰", hexagram:"火泽睽",   xuankongWuxing:"3木", guayun:"二", bagua:"艮", nayinName:"覆灯火", nayinWuxing:"火" },
+        { id:42, jiazi:"乙巳", hexagram:"水天需",   xuankongWuxing:"7火", guayun:"三", bagua:"坤", nayinName:"覆灯火", nayinWuxing:"火" },
+        { id:43, jiazi:"丙午", hexagram:"泽风大过", xuankongWuxing:"4金", guayun:"三", bagua:"震", nayinName:"天河水", nayinWuxing:"水" },
+        { id:44, jiazi:"丁未", hexagram:"山风蛊",   xuankongWuxing:"6水", guayun:"七", bagua:"巽", nayinName:"天河水", nayinWuxing:"水" },
+        { id:45, jiazi:"戊申", hexagram:"风水涣",   xuankongWuxing:"2火", guayun:"六", bagua:"离", nayinName:"大驿土", nayinWuxing:"土" },
+        { id:46, jiazi:"己酉", hexagram:"火山旅",   xuankongWuxing:"3木", guayun:"八", bagua:"离", nayinName:"大驿土", nayinWuxing:"土" },
+        { id:47, jiazi:"庚戌", hexagram:"天地否",   xuankongWuxing:"9金", guayun:"九", bagua:"乾", nayinName:"钗钏金", nayinWuxing:"金" },
+        { id:48, jiazi:"辛亥", hexagram:"水地比",   xuankongWuxing:"7火", guayun:"七", bagua:"坤", nayinName:"钗钏金", nayinWuxing:"金" },
+        { id:49, jiazi:"壬子", hexagram:"雷为震",   xuankongWuxing:"8木", guayun:"一", bagua:"震", nayinName:"桑柘木", nayinWuxing:"木" },
+        { id:50, jiazi:"癸丑", hexagram:"山火贲",   xuankongWuxing:"6水", guayun:"八", bagua:"艮", nayinName:"桑柘木", nayinWuxing:"木" },
+        { id:51, jiazi:"甲寅", hexagram:"水火既济", xuankongWuxing:"7火", guayun:"九", bagua:"坎", nayinName:"大溪水", nayinWuxing:"水" },
+        { id:52, jiazi:"乙卯", hexagram:"地泽临",   xuankongWuxing:"1水", guayun:"四", bagua:"坤", nayinName:"大溪水", nayinWuxing:"水" },
+        { id:53, jiazi:"丙辰", hexagram:"泽为兑",   xuankongWuxing:"4金", guayun:"一", bagua:"兑", nayinName:"沙中土", nayinWuxing:"土" },
+        { id:54, jiazi:"丁巳", hexagram:"风天小畜", xuankongWuxing:"2火", guayun:"八", bagua:"巽", nayinName:"沙中土", nayinWuxing:"土" },
+        { id:55, jiazi:"戊午", hexagram:"火风鼎",   xuankongWuxing:"3木", guayun:"四", bagua:"离", nayinName:"天上火", nayinWuxing:"火" },
+        { id:56, jiazi:"己未", hexagram:"地风升",   xuankongWuxing:"1水", guayun:"二", bagua:"震", nayinName:"天上火", nayinWuxing:"火" },
+        { id:57, jiazi:"庚申", hexagram:"水为坎",   xuankongWuxing:"7火", guayun:"一", bagua:"坎", nayinName:"石榴木", nayinWuxing:"木" },
+        { id:58, jiazi:"辛酉", hexagram:"雷山小过", xuankongWuxing:"8木", guayun:"三", bagua:"兑", nayinName:"石榴木", nayinWuxing:"木" },
+        { id:59, jiazi:"壬戌", hexagram:"泽地萃",   xuankongWuxing:"4金", guayun:"四", bagua:"兑", nayinName:"大海水", nayinWuxing:"水" },
+        { id:60, jiazi:"癸亥", hexagram:"山地剥",   xuankongWuxing:"6水", guayun:"六", bagua:"乾", nayinName:"大海水", nayinWuxing:"水" }
     ];
 
     const jiaziSequence2026 = [
@@ -1513,6 +1830,16 @@
         return map[xkw.charAt(0)] || '';
     }
 
+    // ── 干支五行（天干地支本命五行）──
+    function getGanWuxing(gan) {
+        var map = {'甲':'木','乙':'木','丙':'火','丁':'火','戊':'土','己':'土','庚':'金','辛':'金','壬':'水','癸':'水'};
+        return map[gan] || '—';
+    }
+    function getZhiWuxing(zhi) {
+        var map = {'子':'水','丑':'土','寅':'木','卯':'木','辰':'土','巳':'火','午':'火','未':'土','申':'金','酉':'金','戌':'土','亥':'水'};
+        return map[zhi] || '—';
+    }
+
     // ── 五行对应 emoji ──
     var WX_EMOJI = { '金':'💎','木':'🌿','水':'🌊','火':'🔥','土':'🏔' };
 
@@ -1529,13 +1856,13 @@
     }
 
     function getLuckLevel(score) {
-        if (score >= 90) return { level:'上上大吉', color:'#F0C040', icon:'🌟', textColor:'#0A0904' };
-        if (score >= 80) return { level:'上吉',     color:'#66BB6A', icon:'✨', textColor:'#0A0904' };
-        if (score >= 70) return { level:'吉',        color:'#4A9ECC', icon:'😊', textColor:'#0A0904' };
-        if (score >= 60) return { level:'小吉',      color:'#AB8ECA', icon:'🌙', textColor:'#0A0904' };
-        if (score >= 40) return { level:'平',        color:'#8A7560', icon:'⚖️', textColor:'#F5E6C8' };
-        if (score >= 20) return { level:'凶',        color:'#E87040', icon:'😟', textColor:'#0A0904' };
-        return              { level:'大凶',          color:'#D03030', icon:'💀', textColor:'#F5E6C8' };
+        if (score >= 90) return { level:'上上大吉', color:'#F0C040', icon:'🌟', textColor:'#1A1A1A' };
+        if (score >= 80) return { level:'上吉',     color:'#66BB6A', icon:'✨', textColor:'#FFF' };
+        if (score >= 70) return { level:'吉',        color:'#4A9ECC', icon:'😊', textColor:'#FFF' };
+        if (score >= 60) return { level:'小吉',      color:'#AB8ECA', icon:'🌙', textColor:'#FFF' };
+        if (score >= 40) return { level:'平',        color:'#999999', icon:'⚖️', textColor:'#FFF' };
+        if (score >= 20) return { level:'凶',        color:'#E87040', icon:'😟', textColor:'#FFF' };
+        return              { level:'大凶',          color:'#D03030', icon:'💀', textColor:'#FFF' };
     }
 
     // ── 穿衣建议 ──
@@ -1599,6 +1926,33 @@
         }
     };
 
+    // ── 方位数据 ──
+    var DIR_WX = {'东':'木','南':'火','西':'金','北':'水','东南':'木','西南':'土','东北':'土','西北':'金'};
+    var DIR_EMOJI = {'东':'🌅','南':'☀️','西':'🌇','北':'🌙','东南':'🌿','西南':'⛰','东北':'🏔','西北':'💎'};
+    var ACTIVITY_DIR = {
+        '祈福':{dir:'南', tip:'面南祈福，感应天心'},
+        '祭祀':{dir:'南', tip:'面南祭祀，祖灵歆享'},
+        '入学':{dir:'东', tip:'面东求学，文昌护佑'},
+        '立约':{dir:'西', tip:'面西立约，金口玉言'},
+        '签约':{dir:'西', tip:'面西签约，一诺千金'},
+        '出行':{dir:'南', tip:'向南出行，贵人相助'},
+        '出行远行':{dir:'南', tip:'向南远行，顺风顺水'},
+        '纳财':{dir:'西北', tip:'面西北纳财，天财入库'},
+        '开仓':{dir:'东北', tip:'面东北开仓，仓廪丰盈'},
+        '嫁娶':{dir:'南', tip:'面南行礼，红鸾星动'},
+        '纳采':{dir:'东南', tip:'面东南纳采，喜气东来'},
+        '开市':{dir:'东', tip:'面东开市，紫气东来'},
+        '交易':{dir:'东', tip:'面东交易，和气生财'},
+        '修造':{dir:'西南', tip:'面西南修造，根基永固'},
+        '动土':{dir:'西南', tip:'面西南动土，地德载物'},
+        '破土':{dir:'西南', tip:'面西南破土，免冲土煞'},
+        '安葬':{dir:'西北', tip:'面西北安葬，魂安金阙'},
+        '入宅':{dir:'东', tip:'面东入宅，福气临门'},
+        '移徙':{dir:'东', tip:'面东移徙，步步高升'},
+        '种植':{dir:'东南', tip:'面东南种植，生机勃发'},
+        '伐木':{dir:'西', tip:'面西伐木，金克顺畅'}
+    };
+
     // ── 十二时辰 ──
     var HOURS12 = [
         {name:'子', time:'23-1时'}, {name:'丑', time:'1-3时'},
@@ -1621,6 +1975,86 @@
             else lucks.push('平');
         }
         return lucks;
+    }
+
+    // ── 时辰推荐渲染（方位+活动）──
+    function renderHourRecs(hourLucks, wuxing) {
+        var yiji = YI_JI_BY_WX[wuxing] || {yi:[],ji:[]};
+        var html = '';
+        // 收集吉时
+        var jiHours = [], xiongHours = [];
+        for (var i = 0; i < 12; i++) {
+            if (hourLucks[i] === '吉') jiHours.push(i);
+            else if (hourLucks[i] === '凶') xiongHours.push(i);
+        }
+
+        // 辅助：给活动列表生成方位标签
+        function makeActTags(acts, isJi) {
+            if (!acts.length) return '<span style="font-size:0.72rem;color:var(--text-dim);">—</span>';
+            var seen = {};
+            var tags = '';
+            for (var a = 0; a < acts.length; a++) {
+                var act = acts[a];
+                var dirInfo = ACTIVITY_DIR[act];
+                if (!dirInfo) { tags += '<span class="hr-act">'+act+'</span>'; continue; }
+                var dk = dirInfo.dir;
+                if (seen[dk]) continue;
+                seen[dk] = true;
+                var dirWx = DIR_WX[dk] || '';
+                var dirEm = DIR_EMOJI[dk] || '';
+                tags += '<div class="hr-act-block">' +
+                    '<span class="hr-act">' + (isJi?'✓ ':'✗ ') + act + '</span>' +
+                    '<span class="hr-dir">' + dirEm + ' 面' + dk + ' · ' + dirWx + '</span>' +
+                    '<span class="hr-tip">' + dirInfo.tip + '</span>' +
+                    '</div>';
+            }
+            return tags;
+        }
+
+        // 吉时区块
+        if (jiHours.length) {
+            html += '<div class="hour-rec-section">' +
+                '<div class="hour-rec-title ji-title">🌟 吉时 · 推荐时辰与方位</div>';
+            for (var j = 0; j < jiHours.length; j++) {
+                var idx = jiHours[j];
+                var h = HOURS12[idx];
+                html += '<div class="hour-rec-card ji">' +
+                    '<div class="hr-time">' +
+                        '<div class="hr-name">' + h.name + '时</div>' +
+                        '<div class="hr-range">' + h.time + '</div>' +
+                        '<div class="hr-badge ji-badge">吉</div>' +
+                    '</div>' +
+                    '<div class="hr-body">' +
+                        '<div class="hr-acts-label">宜做</div>' +
+                        '<div class="hr-acts">' + makeActTags(yiji.yi, true) + '</div>' +
+                    '</div>' +
+                '</div>';
+            }
+            html += '</div>';
+        }
+
+        // 凶时区块
+        if (xiongHours.length) {
+            html += '<div class="hour-rec-section">' +
+                '<div class="hour-rec-title xiong-title">⚠️ 凶时 · 需避开的时辰与方位</div>';
+            for (var k = 0; k < xiongHours.length; k++) {
+                var idx2 = xiongHours[k];
+                var h2 = HOURS12[idx2];
+                html += '<div class="hour-rec-card xiong">' +
+                    '<div class="hr-time">' +
+                        '<div class="hr-name">' + h2.name + '时</div>' +
+                        '<div class="hr-range">' + h2.time + '</div>' +
+                        '<div class="hr-badge xiong-badge">凶</div>' +
+                    '</div>' +
+                    '<div class="hr-body">' +
+                        '<div class="hr-acts-label avoid-label">忌做</div>' +
+                        '<div class="hr-acts">' + (yiji.ji.length ? makeActTags(yiji.ji, false) : '<span style="font-size:0.72rem;color:var(--text-dim);">平</span>') + '</div>' +
+                    '</div>' +
+                '</div>';
+            }
+            html += '</div>';
+        }
+        return html;
     }
 
     // ── 农历简表（仅参考，不完整） ──
@@ -1670,10 +2104,12 @@
             var info = getJiaziInfo(jiazi);
             if (info) {
                 var wx = getWuxingName(info.xuankongWuxing);
-                var score = calculateLuckScore(info, '', '');
+                var _ysb = document.getElementById('yong-shen') ? document.getElementById('yong-shen').value : '';
+                var _jsb = document.getElementById('ji-shen')   ? document.getElementById('ji-shen').value   : '';
+                var score = calculateLuckScore(info, _ysb, _jsb);
                 var luck = getLuckLevel(score);
                 tags.push('<span class="today-tag luck">' + luck.icon + ' ' + luck.level + '</span>');
-                tags.push('<span class="today-tag">五行:' + wx + ' ' + (WX_EMOJI[wx]||'') + '</span>');
+                tags.push('<span class="today-tag">玄空:' + wx + ' ' + (WX_EMOJI[wx]||'') + '</span>');
             }
         }
 
@@ -1756,8 +2192,9 @@
 
         // 本月日期格子
         var todayStr = (function() {
-            var t = new Date(); t.setHours(0,0,0,0);
-            return t.toISOString().split('T')[0];
+            var t = new Date();
+            var mm = t.getMonth()+1, dd = t.getDate();
+            return t.getFullYear() + '-' + (mm<10?'0'+mm:mm) + '-' + (dd<10?'0'+dd:dd);
         })();
 
         for (var d = 1; d <= daysInMonth; d++) {
@@ -1770,8 +2207,10 @@
             var jiazi = hd ? getJiaziByDate(dateStr) : null;
             var info = jiazi ? getJiaziInfo(jiazi) : null;
 
+            var _ys = document.getElementById('yong-shen') ? document.getElementById('yong-shen').value : '';
+            var _js = document.getElementById('ji-shen')   ? document.getElementById('ji-shen').value   : '';
             var wuxing = info ? getWuxingName(info.xuankongWuxing) : '';
-            var score = info ? calculateLuckScore(info, '', '') : 0;
+            var score = info ? calculateLuckScore(info, _ys, _js) : 0;
             var luck = info ? getLuckLevel(score) : null;
 
             var classes = 'month-cell';
@@ -1786,7 +2225,8 @@
                 (isToday ? '<div class="cell-today-tag">今</div>' : '') +
                 '<div class="cell-day">' + d + '</div>' +
                 (jiazi ? '<div class="cell-jiazi">' + jiazi + '</div>' : '') +
-                (luck ? '<div class="cell-luck-dot" style="background:' + luck.color + ';"></div>' : '') +
+                (luck ? '<div class="cell-luck-label" style="color:' + luck.textColor + ';background:' + luck.color + ';">' + luck.level + '</div>' : '') +
+                (luck ? '<div class="cell-score" style="color:' + luck.color + ';">' + score + '分</div>' : '') +
                 '</div>';
             cellIndex++;
         }
@@ -1857,8 +2297,165 @@
     }
 
     // ═══════════════════════════════════════════════════════
+    //   周视觉 · 当日居中、左右滑动
+    // ═══════════════════════════════════════════════════════
+
+    var weekOffset = 0; // 0 = 今日居中，正数=向未来偏移
+
+    function getTodayDateStr() {
+        var t = new Date();
+        var mm = t.getMonth()+1, dd = t.getDate();
+        return t.getFullYear() + '-' + (mm<10?'0'+mm:mm) + '-' + (dd<10?'0'+dd:dd);
+    }
+
+    function addDays(dateStr, n) {
+        var d = new Date(dateStr);
+        d.setDate(d.getDate() + n);
+        var mm = d.getMonth()+1, dd = d.getDate();
+        return d.getFullYear() + '-' + (mm<10?'0'+mm:mm) + '-' + (dd<10?'0'+dd:dd);
+    }
+
+    function getWeekdayCN(dateStr) {
+        var wd = ['周日','周一','周二','周三','周四','周五','周六'];
+        return wd[new Date(dateStr).getDay()];
+    }
+
+    function renderWeekView(direction) {
+        var strip = document.getElementById('week-strip');
+        var prevBtn = document.getElementById('week-prev');
+        var nextBtn = document.getElementById('week-next');
+        if (!strip) return;
+
+        // 计算中心日期
+        var today = getTodayDateStr();
+        var centerDate = addDays(today, weekOffset);
+
+        // 数据范围检查：2026年3月1日 - 12月31日
+        var dataStart = '2026-03-01';
+        var dataEnd = '2026-12-31';
+        var leftDate = addDays(centerDate, -3);
+        var rightDate = addDays(centerDate, 3);
+
+        // 按钮禁用
+        prevBtn.disabled = (leftDate < dataStart);
+        nextBtn.disabled = (rightDate > dataEnd);
+
+        // 更新"今天"按钮状态
+        var todayBtn = document.getElementById('week-today');
+        if (todayBtn) todayBtn.disabled = (weekOffset === 0);
+
+        // 读取用神忌神
+        var _ys = document.getElementById('yong-shen') ? document.getElementById('yong-shen').value : '';
+        var _js = document.getElementById('ji-shen')   ? document.getElementById('ji-shen').value   : '';
+
+        var html = '';
+        for (var i = -3; i <= 3; i++) {
+            var ds = addDays(centerDate, i);
+            var isToday = (ds === today);
+            var jiazi = getJiaziByDate(ds);
+            var info = jiazi ? getJiaziInfo(jiazi) : null;
+            var hd = !!info;
+            var wuxing = info ? getWuxingName(info.xuankongWuxing) : '';
+            var score = info ? calculateLuckScore(info, _ys, _js) : 0;
+            var luck = info ? getLuckLevel(score) : null;
+            var dayNum = parseInt(ds.split('-')[2]);
+            var wd = getWeekdayCN(ds);
+
+            var classes = 'week-day-card';
+            if (hd) classes += ' has-data';
+            if (isToday) classes += ' today';
+            if (wuxing) classes += ' wx-' + wuxing;
+
+            var onclick = hd ? ' onclick="selectDate(\'' + ds + '\')"' : '';
+
+            html += '<div class="' + classes + '"' + onclick + '>' +
+                (isToday ? '<div class="wk-today-tag">今</div>' : '') +
+                '<div class="wk-wd">' + wd + '</div>' +
+                '<div class="wk-date">' + dayNum + '</div>' +
+                (jiazi ? '<div class="wk-jiazi">' + jiazi + '</div>' : '') +
+                (luck ? '<div class="wk-luck-badge" style="color:' + luck.textColor + ';background:' + luck.color + ';">' + luck.icon + ' ' + luck.level + '</div>' : '') +
+                (luck ? '<div class="wk-score" style="color:' + luck.color + ';">' + score + '分</div>' : '') +
+                '</div>';
+        }
+
+        strip.innerHTML = html;
+
+        // 动画
+        if (direction) {
+            strip.classList.remove('sliding-left', 'sliding-right');
+            void strip.offsetWidth;
+            strip.classList.add(direction === 'next' ? 'sliding-left' : 'sliding-right');
+        }
+    }
+
+    function prevDay() {
+        weekOffset--;
+        renderWeekView('prev');
+    }
+
+    function nextDay() {
+        weekOffset++;
+        renderWeekView('next');
+    }
+
+    function goToToday() {
+        weekOffset = 0;
+        renderWeekView();
+    }
+
+    function initWeekViewEvents() {
+        var prevBtn = document.getElementById('week-prev');
+        var nextBtn = document.getElementById('week-next');
+        var todayBtn = document.getElementById('week-today');
+        if (prevBtn) prevBtn.addEventListener('click', prevDay);
+        if (nextBtn) nextBtn.addEventListener('click', nextDay);
+        if (todayBtn) todayBtn.addEventListener('click', goToToday);
+
+        // 触摸滑动
+        var strip = document.getElementById('week-strip');
+        if (!strip) return;
+        var startX = 0, startY = 0, isDragging = false;
+
+        strip.addEventListener('touchstart', function(e) {
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+            isDragging = true;
+        }, { passive: true });
+
+        strip.addEventListener('touchend', function(e) {
+            if (!isDragging) return;
+            isDragging = false;
+            var endX = e.changedTouches[0].clientX;
+            var endY = e.changedTouches[0].clientY;
+            var diffX = endX - startX;
+            var diffY = endY - startY;
+            if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY)) {
+                if (diffX > 0) prevDay();
+                else nextDay();
+            }
+        }, { passive: true });
+    }
+
+    // ═══════════════════════════════════════════════════════
     //   查询运势
     // ═══════════════════════════════════════════════════════
+
+    function resetQuery() {
+        // 重置日期为今天
+        var qd = document.getElementById('query-date');
+        qd.value = getTodayDateStr();
+        // 重置用神/忌神
+        document.getElementById('yong-shen').value = '';
+        document.getElementById('ji-shen').value = '';
+        // 关闭所有弹窗
+        document.querySelectorAll('.modal-overlay').forEach(function(m) { m.remove(); });
+        // 刷新页面显示
+        updateTodayBanner();
+        renderMonthGrid();
+        renderWeekView();
+        window._lastPickedDate = null;
+        showToast('已重置');
+    }
 
     function queryFortune() {
         var qd = document.getElementById('query-date');
@@ -1910,8 +2507,29 @@
         var outfit = getOutfitAdvice(wuxing);
         var yiji = YI_JI_BY_WX[wuxing] || {yi:[],ji:[]};
         var hourLucks = getHourLuck(wuxing, info.id);
-        var emoji = WX_EMOJI[wuxing] || '';
+        var gan = jiazi.charAt(0);
+        var zhi = jiazi.charAt(1);
+        var ganWx = getGanWuxing(gan);
+        var zhiWx = getZhiWuxing(zhi);
+        var gzWx = ganWx;
         var monthGz = MONTH_GZ_2026[mon] || '';
+
+        // ── 年干支五行 ──
+        var yearGan = YEAR_GZ.charAt(0);
+        var yearZhi = YEAR_GZ.charAt(1);
+        var yearGanWx = getGanWuxing(yearGan);
+        var yearZhiWx = getZhiWuxing(yearZhi);
+        var yearWx = yearGanWx; // 以天干为主
+
+        // ── 月干支五行 ──
+        var monthGan = '', monthZhi = '', monthGanWx = '', monthZhiWx = '', monthWx = '';
+        if (monthGz) {
+            monthGan = monthGz.charAt(0);
+            monthZhi = monthGz.charAt(1);
+            monthGanWx = getGanWuxing(monthGan);
+            monthZhiWx = getZhiWuxing(monthZhi);
+            monthWx = monthGanWx;
+        }
 
         // 保存 AI 上下文
         window._aiContext = {
@@ -1930,49 +2548,51 @@
             return '<span class="ji-tag">' + a + '</span>';
         }).join('');
 
-        // 宜忌
-        var yiHtml = yiji.yi.map(function(v) { return '<span class="yi-tag">✓ '+v+'</span>'; }).join('');
-        var jiHtml = yiji.ji.map(function(v) { return '<span class="ji-tag">✗ '+v+'</span>'; }).join('');
-
-        // 时辰
-        var hourHtml = HOURS12.map(function(h, i) {
-            var lk = hourLucks[i];
-            var cls = lk === '吉' ? 'ji' : (lk === '凶' ? 'xiong' : '');
-            return '<div class="hour-item ' + cls + '">' +
-                '<div class="h-name">' + h.name + '时</div>' +
-                '<div class="h-time">' + h.time + '</div>' +
-                '<div class="h-luck">' + (lk==='吉'?'✦':lk==='凶'?'✗':'–') + ' ' + lk + '</div>' +
-                '</div>';
-        }).join('');
+        var WX_COLORS = {'金':'#C8A020','木':'#3A8A40','水':'#4080B8','火':'#D04020','土':'#B87030'};
 
         var html =
             '<div class="detail-hero dc-wx-' + wuxing + '">' +
                 '<div class="dc-jiazi" style="font-size:3.2rem;letter-spacing:0.2em;">' + jiazi + '</div>' +
+                '<div class="detail-wx-badge" style="' +
+                    'border-left:3px solid ' + (WX_COLORS[gzWx]||'#999') + ';' +
+                    'background:' + (WX_COLORS[gzWx]||'#666') + '18;' +
+                '">' +
+                    gan + '<span style="color:' + (WX_COLORS[ganWx]||'#999') + ';font-weight:700;">' + ganWx + '</span> ' +
+                    zhi + '<span style="color:' + (WX_COLORS[zhiWx]||'#999') + ';font-weight:700;">' + zhiWx + '</span>' +
+                    ' ' + (WX_EMOJI[gzWx]||'') +
+                '</div>' +
                 '<div class="detail-date-text">' + mon+'月'+day+'日 ' + wd + '　' + YEAR_GZ + '年</div>' +
                 '<div class="detail-luck-badge" style="background:'+luck.color+';color:'+luck.textColor+';">' +
                     luck.icon + ' ' + luck.level +
                 '</div>' +
             '</div>' +
 
-            '<div class="detail-grid">' +
-                '<div class="detail-item"><div class="dl">五行</div><div class="dv">' + wuxing + ' ' + emoji + '</div></div>' +
-                '<div class="detail-item"><div class="dl">卦运</div><div class="dv">' + info.guayun + '</div></div>' +
-                '<div class="detail-item"><div class="dl">六十甲子</div><div class="dv">' + info.bagua + '卦</div></div>' +
-                '<div class="detail-item"><div class="dl">本年干支</div><div class="dv">' + YEAR_GZ + '</div></div>' +
-                (monthGz ? '<div class="detail-item"><div class="dl">本月</div><div class="dv">' + monthGz + '</div></div>' : '') +
-                '<div class="detail-item"><div class="dl">卦象</div><div class="dv" style="font-size:0.78rem;">' + info.hexagram + '</div></div>' +
+            // ── 五行属性条（紧凑4列）──
+            '<div class="wx-strip">' +
+                '<div class="wx-strip-item"><div class="wsl">干支五行</div><div class="wsv">' + gan + ganWx + ' ' + zhi + zhiWx + ' ' + (WX_EMOJI[gzWx]||'') + '</div></div>' +
+                '<div class="wx-strip-item"><div class="wsl">玄空五行</div><div class="wsv">' + info.xuankongWuxing + '</div></div>' +
+                '<div class="wx-strip-item"><div class="wsl">纳音五行</div><div class="wsv">' + (info.nayinWuxing||'—') + '</div></div>' +
+                '<div class="wx-strip-item"><div class="wsl">卦运</div><div class="wsv">' + info.guayun + ' · ' + info.bagua + '卦</div></div>' +
             '</div>' +
 
-            '<div class="detail-section">' +
-                '<div class="detail-section-title">✅ 今日宜</div>' +
-                '<div class="yi-ji-tags">' + yiHtml + '</div>' +
+            // ── 年/月信息行 ──
+            '<div class="year-month-row">' +
+                '<div class="year-month-item">' +
+                    '<div class="yml">本年干支</div>' +
+                    '<div class="ymv">' + YEAR_GZ + ' ' + WX_EMOJI[yearWx] + '</div>' +
+                    '<div class="yms">' + yearGan + yearGanWx + ' · ' + yearZhi + yearZhiWx + '</div>' +
+                '</div>' +
+                (monthGz ? '<div class="year-month-item">' +
+                    '<div class="yml">本月</div>' +
+                    '<div class="ymv">' + monthGz + ' ' + WX_EMOJI[monthWx] + '</div>' +
+                    '<div class="yms">' + monthGan + monthGanWx + ' · ' + monthZhi + monthZhiWx + '</div>' +
+                '</div>' : '') +
             '</div>' +
 
-            '<div class="detail-section">' +
-                '<div class="detail-section-title">❌ 今日忌</div>' +
-                '<div class="yi-ji-tags">' + jiHtml + '</div>' +
-            '</div>' +
+            // ── 时辰推荐卡片（方位+活动）──
+            renderHourRecs(hourLucks, wuxing) +
 
+            // ── 穿衣指引 ──
             '<div class="detail-section">' +
                 '<div class="detail-section-title">👗 穿衣指引 · ' + wuxing + '日</div>' +
                 '<div style="margin-bottom:8px;">' +
@@ -1984,12 +2604,6 @@
                     '<div class="yi-ji-tags">' + avoidHtml + '</div>' +
                 '</div>' +
                 '<p style="font-size:0.8rem;color:var(--text-muted);margin-top:8px;">' + outfit.desc + '</p>' +
-            '</div>' +
-
-            '<div class="detail-section">' +
-                '<div class="detail-section-title">⏰ 十二时辰吉凶</div>' +
-                '<div class="hour-grid">' + hourHtml + '</div>' +
-                '<p style="font-size:0.7rem;color:var(--text-dim);margin-top:6px;text-align:center;">✦=吉 ✗=凶 –=平</p>' +
             '</div>' +
 
             '<button class="ai-btn" id="ai-analysis-btn" onclick="handleAIClickFromContext()">🤖 AI 解读</button>' +
@@ -2012,37 +2626,173 @@
     }
 
     // ═══════════════════════════════════════════════════════
-    //   八字命格科普
+    //   运势求签
     // ═══════════════════════════════════════════════════════
 
-    var BAIZI_KNOWLEDGE = [
-        { term:'日主', emoji:'☯', desc:'八字命格中，出生日的天干称为"日主"，代表命主本人。八字分析的核心是判断日主的旺弱，从而确定用神与忌神。日主旺则需泄耗，日主弱则需生扶。' },
-        { term:'用神', emoji:'🌟', desc:'用神是对日主最有帮助的五行。若日主弱，需生扶，则生助日主之五行为用神；若日主强，需克泄，则克泄日主之五行为用神。用神代表人生中的贵人与机遇。' },
-        { term:'忌神', emoji:'⚠️', desc:'忌神与用神相对，是对日主产生阻碍的五行。日常生活中遇到忌神旺盛的时期，往往容易遇到阻力与麻烦，择日避开忌神旺盛之日行事，有助顺利。' },
-        { term:'五行', emoji:'🌿', desc:'金·木·水·火·土为宇宙五种基本能量形态，相互生克制化。相生顺序：木生火→火生土→土生金→金生水→水生木；相克顺序：木克土→土克水→水克火→火克金→金克木。' },
-        { term:'六十甲子', emoji:'📅', desc:'十天干（甲乙丙丁戊己庚辛壬癸）与十二地支（子丑寅卯辰巳午未申酉戌亥）依次搭配，最小公倍数为60，构成六十甲子循环，用于纪年、纪月、纪日、纪时。' },
-        { term:'大运', emoji:'🔄', desc:'大运是生命阶段的大周期，通常每十年为一大运。大运的推算以出生年份和性别为基础，顺排逆排各有规则。大运的五行属性对人生各阶段有深远影响。' },
-        { term:'流年', emoji:'🗓', desc:'流年是当年的年份天干地支，代表该年的整体气场。每逢流年天干地支与命格中的用神相合，往往诸事顺遂；与忌神相冲克时，则需注意风险。2026年为丙午年。' },
-        { term:'玄空飞星', emoji:'🧭', desc:'玄空飞星是风水学流派，将九宫格与九星（一白水星、二黑土星、三碧木星……）结合，每年九星飞布不同。2026年为八运末年，九紫火星到向，文昌贵人运旺。' },
-        { term:'日柱', emoji:'🌅', desc:'日柱是出生当日的天干地支，是八字四柱（年柱·月柱·日柱·时柱）之一。日柱的天干为日主，地支为日支，日支藏干中往往隐含婚姻宫位的信息。' },
-        { term:'冲合刑害', emoji:'⚡', desc:'地支之间的特殊关系：六合（子丑合、寅亥合…）主合缘聚；三合（申子辰合水局…）主力量聚合；六冲（子午冲、寅申冲…）主动荡变化；刑害主牵绊损耗。' },
-        { term:'印星', emoji:'📚', desc:'生助日主之五行称为印星，代表学识、贵人、母缘与保护力。印星旺盛之人往往重文化、有贵人相助；但印星过旺则易懒散依赖，需食伤来破印才能有所作为。' },
-        { term:'财星', emoji:'💰', desc:'日主所克之五行称为财星，分正财（阴克阳或阳克阴）与偏财（同性相克）。财星代表财富、物质收益及异性缘（男命尤甚）。日主有力克财，方能驾驭财富；日主弱而财旺，反为财所累。' }
+    var FORTUNE_SIGNS = [
+        {
+            name: '腾蛟起凤',
+            level: '上上签',
+            poem: '腾蛟起凤出深渊，一举成名天下传。风云际会从今始，万里鹏程在眼前。',
+            interp: {
+                '整体': '此签为上上签，主大吉大利。蛟龙腾渊、凤凰起舞之象，意为时机已到、格局将变。无论求何事皆有空前机遇，宜大胆行动，顺势而上。',
+                '健康': '身如蛟龙，精力充沛。健康运势极佳，旧疾有望康复。建议趁此良机加强锻炼，巩固体质。养生方面宜用温补之法，调和阴阳。',
+                '家庭': '凤舞于庭，家和万事兴。家庭氛围和谐融洽，有添丁或乔迁之喜。长辈安康、晚辈上进，是阖家团圆的幸福时光。',
+                '事业': '风云际会，正是大展宏图之时。此前埋头的努力即将迎来回报，可能有升职、跳槽或重大合作机会出现。宜当机立断，不可犹豫。',
+                '学业': '一举成名，功名可期。考运极旺，无论升学、考证还是竞赛，皆能超常发挥。保持自信的同时勿忘细心，可望名列前茅。'
+            },
+            advice: '宜向东南方出行，穿红色或金色衣物助旺运势。今日适合签约、面试、开业等重要事务，切记把握时机不可拖延。',
+            color: '#D4A020'
+        },
+        {
+            name: '旭日初升',
+            level: '上签',
+            poem: '旭日初升海气清，千山万水自分明。莫愁前路无知己，天下谁人不识君。',
+            interp: {
+                '整体': '此签为上签，主开运见喜。旭日东升之象，光明渐盛。当前局面虽有迷雾，但很快就会豁然开朗，好事将至。',
+                '健康': '朝气蓬勃，体质回升。之前的小病小痛将逐渐消退，精神面貌焕然一新。宜多晒太阳、增加户外活动以助阳气生发。',
+                '家庭': '日暖家宅，亲情回温。之前若有家庭矛盾，此签一出便有化解之机。主动沟通、放下芥蒂，亲情可复。',
+                '事业': '光照前程，前景光明。新的项目、合作或机遇正在酝酿，虽然暂时尚未明朗，但趋势向好。保持积极心态，机会会来的。',
+                '学业': '日新月异，循序渐进。学习进展稳健，之前难以理解的内容开始融会贯通。坚持就是胜利，不可半途而废。'
+            },
+            advice: '宜向东或东南方向出行，穿白色系衣物。今天适合制定新计划、开始新项目，但不宜急于求成，稳扎稳打为上。',
+            color: '#4A8A4A'
+        },
+        {
+            name: '顺水行舟',
+            level: '中上签',
+            poem: '顺水行舟不用忙，好风相送到潇湘。前程自有安排定，且把真心对月朗。',
+            interp: {
+                '整体': '此签为中上签，主顺势而为、水到渠成。如顺水行舟，不需过于费力即可前行。宜顺势而为，强求反而不美。',
+                '健康': '身如流水，通达顺畅。身体状况平稳，需注意劳逸结合。水象之人（属鼠、猪）尤需注意肾脏和泌尿系统保健。',
+                '家庭': '水润家门，自然和谐。家庭关系如流水般柔软而有力量，不需刻意经营。顺其自然，让爱自由流淌。',
+                '事业': '顺水推舟，事半功倍。工作上各方配合默契，推进顺利。但需保持谦逊，不可因顺利而得意忘形。',
+                '学业': '水到渠成，功不唐捐。之前积累的知识正在逐步转化为理解力。按部就班，考试时自然会得心应手。'
+            },
+            advice: '宜向北出行，穿蓝色或黑色衣物。今日适合团队协作、沟通洽谈，不宜做激进之举。心有疑虑时，顺其自然为上。',
+            color: '#4080B8'
+        },
+        {
+            name: '明月当空',
+            level: '中签',
+            poem: '明月当空万象澄，清光满地水无痕。风波已过心宜静，别有天地在人间。',
+            interp: {
+                '整体': '此签为中签，主风平浪静、内心安宁。经过一段波折后万象澄明，宜安守本分，修身养性。不是进取之时，而是沉淀之机。',
+                '健康': '心如止水，气血调和。身体处于恢复期，不宜剧烈运动。建议多做瑜伽、冥想、太极拳等静养类活动。',
+                '家庭': '月明家静，岁月静好。家庭处于平稳期，无大喜亦无大忧。这正是陪伴家人、增进感情的好时机。',
+                '事业': '风平浪静，蓄力待发。当前工作节奏平缓，没有太大波动。正好利用这段时间梳理思路、提升技能，为下一次冲刺做准备。',
+                '学业': '清心寡欲，学有所成。学习不必急于求成，静下心来反而事半功倍。适合深度学习，不宜浅尝辄止。'
+            },
+            advice: '宜向西南方静坐，穿米色或浅黄色衣物。今日适合阅读、反思、学习，不宜做重大决定。保持平常心即是上策。',
+            color: '#8868B0'
+        },
+        {
+            name: '荆山抱玉',
+            level: '中平签',
+            poem: '荆山抱玉岂无知，未遇良工琢未奇。待得一番风雨后，光华万丈照人衣。',
+            interp: {
+                '整体': '此签为中平签，主怀才不遇、时机未到。如荆山之玉，宝物虽好却不被赏识。并非能力不足，而是时机未至，耐心等待即可。',
+                '健康': '外强中干，表面无恙却有隐忧。建议做一次全面体检，尤其是心肺功能和消化系统。平时感觉小毛病不重要，现在请注意。',
+                '家庭': '玉韫于石，家有待发之势。家人之间可能因为小事争吵，根本原因是彼此期望值太高。降低期待，家庭反而更温暖。',
+                '事业': '怀才待时，不必急躁。你的能力和贡献公司都看在眼里，只是暂时的流程或时机导致晋升推迟。继续做好本职工作，机会会来的。',
+                '学业': '厚积薄发，急需突破瓶颈。当前成绩可能停滞不前，不是你退步了，而是方法需要更新。尝试换一种学习方式。'
+            },
+            advice: '宜向西方出行，穿黄色或咖啡色衣物稳定运势。今日适合投资学习、打磨技能，不宜跳槽或寻求新机会。',
+            color: '#999999'
+        },
+        {
+            name: '迷雾深林',
+            level: '中下签',
+            poem: '迷雾深林不见天，东西南北总茫然。且随流水寻来路，自有春风到耳边。',
+            interp: {
+                '整体': '此签为中下签，主迷惘无措、方向不明。如入迷雾深林，暂时找不到出路。此时不宜盲目行动，宜停下脚步理清头绪。',
+                '健康': '雾锁灵台，精神压力较大。可能因思虑过多导致失眠、焦虑或消化紊乱。建议减少独处时间，多找人倾诉，放松心情。',
+                '家庭': '林深语失，家人之间沟通不畅。有人心里有事不说，有人说了对方听不进。建议暂缓讨论敏感话题，等情绪平复后再沟通。',
+                '事业': '迷雾重重，前景不明朗。公司可能有变动，或者你对自己的方向产生了怀疑。此时不要冲动离职，先观望再决策。',
+                '学业': '茫然失措，学习效率下降。不是不努力，而是努力方向不对。建议找老师或同学讨论，重新定位学习重点。'
+            },
+            advice: '宜向南面阳光处静坐，穿红色或绿色衣物提神。今日适合整理思路、列出清单、与人沟通，不宜做决定或开始新事物。',
+            color: '#D06030'
+        },
+        {
+            name: '落叶归根',
+            level: '下签',
+            poem: '落叶纷纷满地秋，西风吹尽旧时愁。且收心绪归田里，来岁春风绿又抽。',
+            interp: {
+                '整体': '此签为下签，主秋收冬藏、运势走低。如落叶之秋，当前之事多有不成。但要知四季循环，低谷之后必有反弹，此时宜收缩防线。',
+                '健康': '秋风萧瑟，免疫力下降。易感冒、过敏或旧疾复发。注意保暖，饮食清淡，减少外出应酬。秋冬养生重在「藏」，多休息少折腾。',
+                '家庭': '落叶飘零，家中有离别或疏远之象。可能是孩子离家、长辈远行，或是亲友间情谊转淡。学会接受离别，来年自会重逢。',
+                '事业': '西风劲吹，事业遭遇瓶颈。项目可能延期或被砍，竞争压力增大。此时不宜硬拼，战术性退一步、保存实力更为重要。',
+                '学业': '秋收无获，成绩不如预期。可能是考试发挥失常，或者某个科目特别吃力。不要气馁，这只是暂时的低谷，调整方法再来。'
+            },
+            advice: '宜在家里静养，穿深色衣物、减少社交。此时适合复盘总结、回顾过去，不适合投资、扩张、跳槽等主动出击行为。',
+            color: '#C03030'
+        },
+        {
+            name: '泥牛入海',
+            level: '下下签',
+            poem: '泥牛入海去无痕，消息沉沦不可论。万事不由人计较，且将杯酒送黄昏。',
+            interp: {
+                '整体': '此签为下下签，主事有阻滞、消息全无。泥牛入海之象意为付出无回报、沟通无回音。此时宜放下执念，接受现实，暂时退一步海阔天空。',
+                '健康': '海深无底，健康有隐患。需警惕隐性健康问题，定期体检非常必要。若身体有不适，不要讳疾忌医，及早检查和治疗。',
+                '家庭': '消息沉沦，家庭沟通受阻。可能有重要家事悬而未决，家人之间话不投机。不要强求沟通，给彼此一些空间，时间会带来转机。',
+                '事业': '泥牛入海，投入无回响。工作了无回报或项目毫无进展。此时不要追加投入，宜暂停等待。反思方向是否正确，也许需要重新规划。',
+                '学业': '不由人算，成绩难如愿。付出了努力但暂时看不到成效。不要失去信心，也不要盲目加码，调整学习方法和心态更重要。'
+            },
+            advice: '宜向北面静坐冥想，穿黑色或深色衣物收敛气机。这段时间宜休息和反思，不宜做重大投入。',
+            color: '#C03030'
+        }
     ];
 
-    var lastKnowIdx = -1;
+    var lastSignIdx = -1;
     function shakeFortune() {
-        var idx;
-        do { idx = Math.floor(Math.random() * BAIZI_KNOWLEDGE.length); } while (idx === lastKnowIdx);
-        lastKnowIdx = idx;
-        var k = BAIZI_KNOWLEDGE[idx];
-        var card = document.getElementById('know-card');
-        card.innerHTML =
-            '<div class="know-emoji">' + k.emoji + '</div>' +
-            '<div class="know-term">' + k.term + '</div>' +
-            '<div class="know-desc">' + k.desc + '</div>';
-        card.style.display = 'block';
+        var icon = document.querySelector('.fortune-draw-area .fortune-icon');
+        var btn = document.querySelector('.fortune-draw-area .shake-btn');
+        var result = document.getElementById('fortune-result');
+        // 摇晃动画
+        if (btn) { btn.disabled = true; btn.textContent = '🎋 摇晃中...'; }
+        if (icon) icon.classList.add('shaking');
+        // 延迟展示结果
+        setTimeout(function() {
+            if (icon) icon.classList.remove('shaking');
+            if (btn) { btn.disabled = false; btn.textContent = '🎋 再摇一次'; }
+            // 选签
+            var idx;
+            do { idx = Math.floor(Math.random() * FORTUNE_SIGNS.length); } while (idx === lastSignIdx);
+            lastSignIdx = idx;
+            var sign = FORTUNE_SIGNS[idx];
+            // 渲染结果
+            result.innerHTML = renderFortuneResult(sign);
+            result.style.display = 'block';
+            result.scrollIntoView({behavior:'smooth',block:'center'});
+        }, 800);
     }
+
+    function renderFortuneResult(s) {
+        var cats = ['整体','健康','家庭','事业','学业'];
+        var emojis = {'整体':'🔮','健康':'💪','家庭':'🏠','事业':'💼','学业':'📚'};
+        var catHtml = '';
+        for (var i = 0; i < cats.length; i++) {
+            var c = cats[i];
+            catHtml += '<div class="sign-cat-card">' +
+                '<div class="scc-title"><span class="scc-emoji">' + (emojis[c]||'') + '</span>' + c + '</div>' +
+                '<div class="scc-text">' + s.interp[c] + '</div>' +
+                '</div>';
+        }
+        return '<div class="sign-header" style="border-color:' + s.color + '">' +
+                '<div class="sign-level" style="background:' + s.color + '">' + s.level + '</div>' +
+                '<div class="sign-name" style="color:' + s.color + '">' + s.name + '</div>' +
+            '</div>' +
+            '<div class="sign-poem">' +
+                s.poem.replace(/，/g, '，<br>').replace(/。/g, '。<br>') +
+            '</div>' +
+            '<div class="sign-category-grid">' + catHtml + '</div>' +
+            '<div class="sign-advice">' +
+                '<span class="sa-icon">💡</span>' +
+                '<span>' + s.advice + '</span>' +
+            '</div>';
+    }
+
 
     // ═══════════════════════════════════════════════════════
     //   六十甲子网格
@@ -2054,10 +2804,13 @@
         var html = '';
         sixtyJiaziData.forEach(function(item) {
             var wuxing = getWuxingName(item.xuankongWuxing);
-            html += '<div class="day-card dc-wx-' + wuxing + '" style="flex:0 0 130px;cursor:pointer;" onclick="showJiaziDetail(\'' + item.jiazi + '\')">' +
+            var nayinNX = item.nayinName;
+            var nayinWX = item.nayinWuxing;
+            html += '<div class="day-card dc-wx-' + wuxing + '" style="flex:0 0 160px;cursor:pointer;" onclick="showJiaziDetail(\'' + item.jiazi + '\')">' +
                 '<div class="dc-wx-emoji">' + (WX_EMOJI[wuxing]||'') + '</div>' +
                 '<div class="dc-jiazi" style="font-size:1.6rem;">' + item.jiazi + '</div>' +
                 '<div class="dc-hex">' + item.hexagram + '</div>' +
+                '<div class="dc-nayin" style="font-size:0.72rem;color:var(--text-secondary);font-weight:600;margin-top:2px;">📜 ' + nayinNX + '（' + nayinWX + '）</div>' +
                 '<div class="dc-recs"><span class="dc-rec-tag">' + item.xuankongWuxing + '</span>' +
                 '<span class="dc-rec-tag">运' + item.guayun + '</span></div>' +
                 '</div>';
@@ -2069,6 +2822,11 @@
         var info = getJiaziInfo(jiazi);
         if (!info) return;
         var wuxing = getWuxingName(info.xuankongWuxing);
+        var gan = jiazi.charAt(0);
+        var zhi = jiazi.charAt(1);
+        var ganWx = getGanWuxing(gan);
+        var zhiWx = getZhiWuxing(zhi);
+        var gzWx = ganWx; // 以天干五行为主
         var outfit = getOutfitAdvice(wuxing);
         var modal = document.createElement('div');
         modal.className = 'modal-overlay on';
@@ -2083,8 +2841,9 @@
                     '<div class="detail-date-text">' + info.hexagram + ' · ' + info.bagua + '卦</div>' +
                 '</div>' +
                 '<div class="detail-grid">' +
+                    '<div class="detail-item"><div class="dl">纳音五行</div><div class="dv">' + (info.nayinName||'—') + '（' + (info.nayinWuxing||'—') + '）</div></div>' +
                     '<div class="detail-item"><div class="dl">玄空五行</div><div class="dv">' + info.xuankongWuxing + '</div></div>' +
-                    '<div class="detail-item"><div class="dl">五行</div><div class="dv">' + wuxing + ' ' + (WX_EMOJI[wuxing]||'') + '</div></div>' +
+                    '<div class="detail-item"><div class="dl">干支五行</div><div class="dv">' + gan + ganWx + ' ' + zhi + zhiWx + ' ' + (WX_EMOJI[gzWx]||'') + '</div></div>' +
                     '<div class="detail-item"><div class="dl">卦运</div><div class="dv">' + info.guayun + '</div></div>' +
                 '</div>' +
                 '<div class="detail-section">' +
@@ -2140,7 +2899,13 @@
     document.addEventListener('DOMContentLoaded', function() {
         var today = new Date();
         var min = new Date('2026-03-01');
-        var defDate = today >= min ? today.toISOString().split('T')[0] : '2026-03-01';
+        var defDate;
+        if (today >= min) {
+            var mm = today.getMonth()+1, dd = today.getDate();
+            defDate = today.getFullYear() + '-' + (mm<10?'0'+mm:mm) + '-' + (dd<10?'0'+dd:dd);
+        } else {
+            defDate = '2026-03-01';
+        }
         document.getElementById('query-date').value = defDate;
 
         // 初始化月历
@@ -2151,6 +2916,8 @@
         }
         renderMonthGrid();
         initMonthSwipe();
+        renderWeekView();
+        initWeekViewEvents();
         updateTodayBanner();
 
         // iOS 轮询
@@ -2160,6 +2927,18 @@
             var cur = qd.value;
             if (cur && cur !== prev) { prev = cur; window._lastPickedDate = cur; }
         }, 300);
+
+        // 用神/忌神变更时重新渲染月历 + 顶部 banner（更新吉凶判断）
+        function onYongJiChange() {
+            console.log('[用神/忌神] changed, 用神=' + (document.getElementById('yong-shen').value||'未选') + ' 忌神=' + (document.getElementById('ji-shen').value||'未选'));
+            updateTodayBanner();
+            renderMonthGrid();
+            renderWeekView();
+        }
+        var ys = document.getElementById('yong-shen');
+        var js = document.getElementById('ji-shen');
+        if (ys) { ys.addEventListener('change', onYongJiChange); ys.addEventListener('input', onYongJiChange); }
+        if (js) { js.addEventListener('change', onYongJiChange); js.addEventListener('input', onYongJiChange); }
 
         // 加载已保存的主题
         loadTheme();
