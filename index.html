@@ -84,11 +84,18 @@
             --transition-normal: 0.3s ease;
             --transition-slow:   0.5s ease;
 
-            /* ── 阴影 ── */
+            /* ── 阴影（增强层次）── */
+            --shadow-xs:  0 0.5px 2px rgba(0,0,0,0.04);
             --shadow-sm:  0 1px 4px rgba(0,0,0,0.06);
             --shadow-md:  0 2px 12px rgba(0,0,0,0.08);
-            --shadow-lg:  0 4px 24px rgba(0,0,0,0.1);
+            --shadow-lg:  0 4px 24px rgba(0,0,0,0.10);
+            --shadow-xl:  0 8px 40px rgba(0,0,0,0.12);
             --shadow-glow:0 0 20px rgba(193,127,36,0.25);
+            --shadow-card-hover: 0 6px 28px rgba(0,0,0,0.12), 0 0 0 1px rgba(193,127,36,0.08);
+
+            /* ── 骨架屏 ── */
+            --skeleton-base: #E8E3DC;
+            --skeleton-shine: #F0EDE8;
         }
 
         *, *::before, *::after {
@@ -744,7 +751,16 @@
             border: 2px solid transparent;
             box-shadow: var(--shadow-sm);
         }
-        .day-card:hover { opacity: 0.92; transform: scale(0.97); }
+        .day-card:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+            border-color: currentColor;
+        }
+        .day-card:active { transform: scale(0.97); }
+        .day-card:focus-visible {
+            outline: 3px solid var(--primary);
+            outline-offset: 3px;
+        }
         .dc-wx-金 { background: var(--wx-metal-bg); border-color: var(--wx-metal); }
         .dc-wx-木 { background: var(--wx-wood-bg); border-color: var(--wx-wood); }
         .dc-wx-水 { background: var(--wx-water-bg); border-color: var(--wx-water); }
@@ -1217,28 +1233,215 @@
             border-radius: 3px;
         }
 
-        /* ── 响应式 ── */
-        @media (max-width: 480px) {
+        /* ═══════════════════════════════════════════════════════
+           响应式断点系统
+        ═══════════════════════════════════════════════════════ */
+
+        /* ── 桌面 (≥1024px) ── */
+        @media (min-width: 1024px) {
+            .container { max-width: 1100px; padding: var(--space-lg) var(--space-2xl) var(--space-2xl); }
+            .hero { padding: var(--space-2xl) var(--space-2xl); }
+            .hero-title { font-size: 2.8rem; }
+            .month-cell { padding: 10px 6px; }
+            .month-cell .cell-day { font-size: 1.4rem; }
+            .month-cell .cell-jiazi { font-size: 1.1rem; }
+            .sign-category-grid { grid-template-columns: repeat(3, 1fr); }
+            .sign-cat-card:nth-child(1) { grid-column: 1 / -1; }
+            .detail-grid { grid-template-columns: repeat(4, 1fr); }
+            .hour-grid { grid-template-columns: repeat(6, 1fr); }
+            .week-day-card { padding: var(--space-md); }
+            .tab-nav { justify-content: center; gap: var(--space-md); }
+            .tab-btn { min-width: 120px; font-size: 0.95rem; }
+        }
+
+        /* ── 平板 (768px–1023px) ── */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .container { max-width: 900px; padding: var(--space-md) var(--space-lg) var(--space-2xl); }
+            .hero-title { font-size: 2.2rem; }
+            .month-cell { padding: 6px 3px; }
+            .sign-category-grid { grid-template-columns: 1fr 1fr; }
+            .sign-cat-card:nth-child(1) { grid-column: 1 / -1; }
+            .detail-grid { grid-template-columns: repeat(4, 1fr); }
+            .hour-grid { grid-template-columns: repeat(6, 1fr); }
+            .week-day-card { padding: 8px 4px; }
+        }
+
+        /* ── 手机 (≤767px) ── */
+        @media (max-width: 767px) {
             .today-banner { flex-direction: column; align-items: flex-start; }
+            .top-nav { border-radius: var(--radius-md); padding: var(--space-sm) var(--space-md); }
             .top-nav-links { display: none; }
+            .top-nav-logo-text { font-size: 1.1rem; }
+            .hero { padding: var(--space-xl) var(--space-md); border-radius: var(--radius-lg); }
+            .hero-title { font-size: 1.6rem; }
+            .hero-subtitle { font-size: 0.85rem; }
+            .hero::before { font-size: 120px; }
+            .glass-box { padding: var(--space-lg); border-radius: var(--radius-md); }
+            .tab-nav { border-radius: var(--radius-md); gap: 2px; padding: 4px; }
+            .tab-btn { font-size: 0.78rem; padding: var(--space-xs) 10px; min-width: 70px; }
             .month-cell { padding: 2px 1px; }
             .month-cell .cell-day { font-size: 1.05rem; }
             .month-cell .cell-jiazi { font-size: 0.82rem; }
             .month-cell .cell-luck-label { font-size: 0.65rem; }
             .month-cell .cell-score { font-size: 0.62rem; }
-            .hero-title { font-size: 1.6rem; }
-            .hero { padding: var(--space-xl) var(--space-md); }
-            .glass-box { padding: var(--space-lg); }
             .detail-grid { grid-template-columns: repeat(3, 1fr); }
             .hour-grid { grid-template-columns: repeat(4, 1fr); }
-            .modal { padding: var(--space-lg); }
+            .sign-category-grid { grid-template-columns: 1fr; }
+            .sign-cat-card:nth-child(1) { grid-column: 1; }
+            .sign-poem { font-size: 0.95rem; padding: var(--space-md); }
+            .sign-name { font-size: 1.6rem; }
+            .modal { padding: var(--space-lg); max-height: 85vh; border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
+            .modal-overlay { align-items: flex-end; }
+            .modal-hdr { position: sticky; top: 0; background: inherit; z-index: 2; }
+            .fortune-box { padding: var(--space-md); }
+            .fortune-icon { font-size: 2rem; }
+            .fortune-result { padding: var(--space-md); }
         }
+
+        /* ── 小屏手机 (≤360px) ── */
         @media (max-width: 360px) {
+            .hero-title { font-size: 1.4rem; }
             .month-cell .cell-day { font-size: 0.92rem; }
             .month-cell .cell-jiazi { font-size: 0.72rem; }
             .month-cell .cell-luck-label { font-size: 0.58rem; }
             .month-cell .cell-score { font-size: 0.55rem; }
             .hour-grid { grid-template-columns: repeat(3, 1fr); }
+            .tab-btn { font-size: 0.7rem; padding: var(--space-xs) 6px; min-width: 60px; }
+        }
+
+        /* ── 减少动画偏好 ── */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            html { scroll-behavior: auto; }
+        }
+
+        /* ── 高对比度模式 ── */
+        @media (prefers-contrast: high) {
+            :root {
+                --text-primary: #000;
+                --text-secondary: #333;
+                --text-muted: #555;
+                --bg-primary: #FFF;
+                --bg-card: #FFF;
+                --bg-glass-b: #999;
+            }
+            .month-cell.has-data { border-width: 2px; }
+            .sign-level { border: 2px solid currentColor; }
+        }
+
+        /* ═══════════════════════════════════════════════════════
+           骨架屏 & 加载态
+        ═══════════════════════════════════════════════════════ */
+        .skeleton {
+            background: linear-gradient(90deg, var(--skeleton-base) 25%, var(--skeleton-shine) 50%, var(--skeleton-base) 75%);
+            background-size: 200% 100%;
+            animation: skeleton-shimmer 1.5s ease-in-out infinite;
+            border-radius: var(--radius-sm);
+        }
+        @keyframes skeleton-shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        .skeleton-text { height: 14px; margin-bottom: 8px; }
+        .skeleton-text.short { width: 60%; }
+        .skeleton-card { height: 120px; border-radius: var(--radius-md); }
+        .skeleton-circle { width: 48px; height: 48px; border-radius: 50%; }
+
+        /* ═══════════════════════════════════════════════════════
+           微交互增强
+        ═══════════════════════════════════════════════════════ */
+
+        /* 按钮按下波纹 */
+        .btn {
+            position: relative; overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .btn::after {
+            content: ''; position: absolute;
+            inset: 0; background: radial-gradient(circle, rgba(255,255,255,0.4) 10%, transparent 60%);
+            opacity: 0; transition: opacity 0.3s;
+        }
+        .btn:active::after { opacity: 1; transition: opacity 0s; }
+
+        /* 按钮加载态 */
+        .btn.loading {
+            pointer-events: none; opacity: 0.7;
+            position: relative; color: transparent !important;
+        }
+        .btn.loading::before {
+            content: ''; position: absolute;
+            inset: calc(50% - 10px) auto auto calc(50% - 10px);
+            width: 20px; height: 20px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-top-color: #FFF;
+            border-radius: 50%;
+            animation: btn-spin 0.6s linear infinite;
+        }
+        @keyframes btn-spin { to { transform: rotate(360deg); } }
+
+        /* 按钮成功/失败态 */
+        .btn.success { background: #4A8A4A !important; border-color: #4A8A4A !important; }
+        .btn.error { background: #D06030 !important; border-color: #D06030 !important; }
+
+        /* 输入框聚焦增强 */
+        input:focus-visible, select:focus-visible, button:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+            border-radius: var(--radius-sm);
+        }
+
+        /* 卡片悬浮增强 */
+        .glass-box {
+            transition: box-shadow 0.3s ease, transform 0.2s ease;
+        }
+        .glass-box:hover {
+            box-shadow: var(--shadow-card-hover);
+        }
+        .month-cell.has-data {
+            transition: transform 0.2s cubic-bezier(0.4,0,0.2,1),
+                        box-shadow 0.2s ease,
+                        border-color 0.15s ease;
+        }
+        .month-cell.has-data:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: var(--shadow-lg);
+            z-index: 5;
+        }
+        .month-cell.has-data:active {
+            transform: scale(0.97);
+        }
+
+        /* Hero 区域增强 */
+        .hero {
+            transition: box-shadow 0.3s ease;
+        }
+        .hero:hover {
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* Toast 动画增强 */
+        #share-toast {
+            transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.4,0,0.2,1);
+        }
+        #share-toast.show {
+            animation: toast-in 0.4s cubic-bezier(0.4,0,0.2,1);
+        }
+        @keyframes toast-in {
+            from { opacity: 0; transform: translateY(20px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* 运势签文卡片交互动效 */
+        .sign-cat-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.15s ease;
+        }
+        .sign-cat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
         }
 
         .label-tip {
@@ -1421,57 +1624,57 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container" role="main">
 
         <!-- 顶部实时日期横幅 -->
-        <div class="today-banner" id="today-banner">
+        <div class="today-banner" id="today-banner" role="status" aria-live="polite" aria-label="今日日期信息">
             <div class="today-date-main" id="today-date-main">加载中...</div>
             <div class="today-meta" id="today-meta"></div>
         </div>
 
         <!-- 主导航 -->
-        <nav class="top-nav">
+        <nav class="top-nav" role="navigation" aria-label="主导航">
             <div class="top-nav-logo">
-                <div class="top-nav-logo-icon">🏮</div>
+                <div class="top-nav-logo-icon" aria-hidden="true">🏮</div>
                 <span class="top-nav-logo-text">择日 2026</span>
             </div>
             <div class="top-nav-links">
-                <a href="#" class="top-nav-link active" onclick="switchPanel('panel-query');return false;">吉日查询</a>
-                <a href="#" class="top-nav-link" onclick="switchPanel('panel-fortune');return false;">运势测算</a>
-                <a href="#" class="top-nav-link" onclick="switchPanel('panel-jiazi');return false;">六十甲子</a>
+                <a href="#" class="top-nav-link active" role="tab" aria-selected="true" onclick="switchPanel('panel-query');return false;">吉日查询</a>
+                <a href="#" class="top-nav-link" role="tab" aria-selected="false" onclick="switchPanel('panel-fortune');return false;">运势测算</a>
+                <a href="#" class="top-nav-link" role="tab" aria-selected="false" onclick="switchPanel('panel-jiazi');return false;">六十甲子</a>
             </div>
             <div style="display:flex;align-items:center;gap:8px;">
-                <button class="btn-primary btn" style="padding:8px 16px;font-size:0.82rem;" onclick="switchPanel('panel-query')">🔍 吉日查询</button>
+                <button class="btn-primary btn" style="padding:8px 16px;font-size:0.82rem;" aria-label="跳转到吉日查询" onclick="switchPanel('panel-query')">🔍 吉日查询</button>
             </div>
         </nav>
 
         <!-- Hero -->
-        <section class="hero">
+        <section class="hero" aria-labelledby="hero-heading">
             <div class="hero-content">
-                <span class="hero-badge">🏮 2026 丙午年 · 玄空五行</span>
-                <h1 class="hero-title">玄空五行择日系统</h1>
+                <span class="hero-badge" aria-hidden="true">🏮 2026 丙午年 · 玄空五行</span>
+                <h1 class="hero-title" id="hero-heading">玄空五行择日系统</h1>
                 <p class="hero-subtitle">依玄空飞星、六十甲子原理 · 为2026年提供吉日速查与穿衣颜色指引</p>
             </div>
         </section>
 
         <!-- 功能标签页 -->
-        <div class="tab-nav">
-            <button class="tab-btn active" data-panel="panel-query">
-                <span>📅</span><span>吉日查询</span>
+        <div class="tab-nav" role="tablist" aria-label="功能面板">
+            <button class="tab-btn active" role="tab" aria-selected="true" data-panel="panel-query" aria-controls="panel-query" id="tab-panel-query" tabindex="0">
+                <span aria-hidden="true">📅</span><span>吉日查询</span>
             </button>
-            <button class="tab-btn" data-panel="panel-fortune">
-                <span>🔮</span><span>运势测算</span>
+            <button class="tab-btn" role="tab" aria-selected="false" data-panel="panel-fortune" aria-controls="panel-fortune" id="tab-panel-fortune" tabindex="-1">
+                <span aria-hidden="true">🔮</span><span>运势测算</span>
             </button>
-            <button class="tab-btn" data-panel="panel-jiazi">
-                <span>📚</span><span>六十甲子</span>
+            <button class="tab-btn" role="tab" aria-selected="false" data-panel="panel-jiazi" aria-controls="panel-jiazi" id="tab-panel-jiazi" tabindex="-1">
+                <span aria-hidden="true">📚</span><span>六十甲子</span>
             </button>
-            <button class="tab-btn" data-panel="panel-about">
-                <span>ℹ️</span><span>关于</span>
+            <button class="tab-btn" role="tab" aria-selected="false" data-panel="panel-about" aria-controls="panel-about" id="tab-panel-about" tabindex="-1">
+                <span aria-hidden="true">ℹ️</span><span>关于</span>
             </button>
         </div>
 
         <!-- 面板：吉日查询 -->
-        <div class="panel active" id="panel-query">
+        <div class="panel active" id="panel-query" role="tabpanel" aria-labelledby="tab-panel-query">
             <div class="glass-box">
                 <h2>查询条件</h2>
                 <div class="ctrl-row">
@@ -1550,7 +1753,7 @@
         </div>
 
         <!-- 面板：运势测算 -->
-        <div class="panel" id="panel-fortune">
+        <div class="panel" id="panel-fortune" role="tabpanel" aria-labelledby="tab-panel-fortune">
             <div class="glass-box fortune-box">
                 <h2>🔮 灵签求测</h2>
                 <p class="section-desc" style="margin-bottom:20px;">心诚则灵，摇签问事。点击签筒抽取您的运势签文，解读涵盖整体、健康、家庭、事业、学业五大方面。</p>
@@ -1567,7 +1770,7 @@
         </div>
 
         <!-- 面板：六十甲子 -->
-        <div class="panel" id="panel-jiazi">
+        <div class="panel" id="panel-jiazi" role="tabpanel" aria-labelledby="tab-panel-jiazi">
             <div class="glass-box">
                 <h2>六十甲子总览</h2>
                 <p class="section-desc">六十甲子由十天干与十二地支依次组合，每60年循环一轮，是中国传统纪时体系的核心。</p>
@@ -1576,7 +1779,7 @@
         </div>
 
         <!-- 面板：关于 -->
-        <div class="panel" id="panel-about">
+        <div class="panel" id="panel-about" role="tabpanel" aria-labelledby="tab-panel-about">
             <div class="glass-box">
                 <h2>关于玄空五行择日系统</h2>
                 <p class="section-desc">本系统基于玄空风水五行原理，为 2026 年（丙午年）提供吉日查询与穿衣颜色指引。</p>
@@ -1719,7 +1922,6 @@
         </div>
     </div>
 
-    <script src="fortune_data.js"></script>
     <script>
     // ═══════════════════════════════════════════════════════
     //   六十甲子 & 2026 数据
@@ -2623,10 +2825,10 @@
             if (e.target === modal) modal.remove();
         });
         document.body.appendChild(modal);
+        // 焦点管理：聚焦关闭按钮
+        var closeBtn = modal.querySelector('.modal-close');
+        if (closeBtn) setTimeout(function() { closeBtn.focus(); }, 100);
     }
-
-    // ═══════════════════════════════════════════════════════
-    //   运势求签
     // ═══════════════════════════════════════════════════════
 
     var FORTUNE_SIGNS = [
@@ -2749,21 +2951,30 @@
         var icon = document.querySelector('.fortune-draw-area .fortune-icon');
         var btn = document.querySelector('.fortune-draw-area .shake-btn');
         var result = document.getElementById('fortune-result');
-        // 摇晃动画
-        if (btn) { btn.disabled = true; btn.textContent = '🎋 摇晃中...'; }
+        if (!btn || btn.disabled) return;
+        // 摇晃动画 + loading 态
+        btn.classList.add('loading');
+        btn.textContent = '';
         if (icon) icon.classList.add('shaking');
+        // 骨架屏
+        if (result) {
+            result.style.display = 'block';
+            result.innerHTML = '<div class="skeleton skeleton-card" style="margin-bottom:12px;"></div>' +
+                '<div class="skeleton skeleton-text"></div>' +
+                '<div class="skeleton skeleton-text short"></div>';
+            result.scrollIntoView({behavior:'smooth',block:'center'});
+        }
         // 延迟展示结果
         setTimeout(function() {
             if (icon) icon.classList.remove('shaking');
-            if (btn) { btn.disabled = false; btn.textContent = '🎋 再摇一次'; }
+            if (btn) { btn.classList.remove('loading'); btn.disabled = false; btn.textContent = '🎋 再摇一次'; }
             // 选签
             var idx;
-            do { idx = Math.floor(Math.random() * FORTUNE_SIGNS.length); } while (idx === lastSignIdx);
+            do { idx = Math.floor(Math.random() * FORTUNE_SIGNS.length); } while (idx === lastSignIdx && FORTUNE_SIGNS.length > 1);
             lastSignIdx = idx;
             var sign = FORTUNE_SIGNS[idx];
             // 渲染结果
             result.innerHTML = renderFortuneResult(sign);
-            result.style.display = 'block';
             result.scrollIntoView({behavior:'smooth',block:'center'});
         }, 800);
     }
@@ -2873,22 +3084,74 @@
     }
 
     // ═══════════════════════════════════════════════════════
+    //   全局键盘事件
+    // ═══════════════════════════════════════════════════════
+
+    document.addEventListener('keydown', function(e) {
+        // Escape 关闭弹窗
+        if (e.key === 'Escape') {
+            var overlay = document.querySelector('.modal-overlay.on');
+            if (overlay) {
+                overlay.remove();
+                // 焦点回到文档
+                document.body.focus();
+            }
+        }
+    });
+
+    // ═══════════════════════════════════════════════════════
     //   标签页切换
     // ═══════════════════════════════════════════════════════
 
     function switchPanel(id) {
+        // 更新标签按钮
         document.querySelectorAll('.tab-btn').forEach(function(b) {
-            b.classList.toggle('active', b.dataset.panel === id);
+            var isActive = b.dataset.panel === id;
+            b.classList.toggle('active', isActive);
+            b.setAttribute('aria-selected', isActive ? 'true' : 'false');
+            b.tabIndex = isActive ? 0 : -1;
         });
+        // 更新顶部导航链接
+        document.querySelectorAll('.top-nav-link').forEach(function(a) {
+            var href = a.getAttribute('onclick') || '';
+            a.classList.toggle('active', href.indexOf("'" + id + "'") !== -1);
+            a.setAttribute('aria-selected', href.indexOf("'" + id + "'") !== -1 ? 'true' : 'false');
+        });
+        // 切换面板
         document.querySelectorAll('.panel').forEach(function(p) {
             p.classList.toggle('active', p.id === id);
         });
+        // 聚焦当前激活的标签
+        var activeTab = document.querySelector('.tab-btn[data-panel="' + id + '"]');
+        if (activeTab && document.activeElement !== activeTab) {
+            // 不强制聚焦，避免打断用户操作
+        }
         if (id === 'panel-jiazi') generateJiaziGrid();
     }
 
+    // 标签按钮：click + 键盘支持
     document.querySelectorAll('.tab-btn').forEach(function(btn) {
         btn.addEventListener('click', function() {
             switchPanel(btn.dataset.panel);
+        });
+        btn.addEventListener('keydown', function(e) {
+            var tabs = Array.from(document.querySelectorAll('.tab-btn'));
+            var idx = tabs.indexOf(btn);
+            var target;
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                e.preventDefault();
+                target = tabs[(idx + 1) % tabs.length];
+            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                e.preventDefault();
+                target = tabs[(idx - 1 + tabs.length) % tabs.length];
+            } else if (e.key === 'Home') {
+                e.preventDefault();
+                target = tabs[0];
+            } else if (e.key === 'End') {
+                e.preventDefault();
+                target = tabs[tabs.length - 1];
+            }
+            if (target) { target.focus(); target.click(); }
         });
     });
 
